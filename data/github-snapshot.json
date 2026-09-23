@@ -1,0 +1,132 @@
+{
+  "updatedAt": "2026-09-23T13:00:55.9320775Z",
+  "profile": {
+    "login": "AtillaKuncoroDjati",
+    "name": "AtillaKuncoroDjati",
+    "bio": null,
+    "location": "Jakarta, Indonesia",
+    "avatar_url": "https://avatars.githubusercontent.com/u/182108483?v=4",
+    "html_url": "https://github.com/AtillaKuncoroDjati",
+    "public_repos": 8,
+    "followers": 6
+  },
+  "repos": [
+    {
+      "name": "Bening-Studio",
+      "description": "Aplikasi Windows portable untuk menghapus background dan mengubah ukuran gambar secara offline.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/Bening-Studio",
+      "language": "C#",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-23T12:13:46Z",
+      "pushed_at": "2026-09-23T12:19:45Z",
+      "homepage": null,
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "EduSkillWebsite",
+      "description": "Platform Microlearning",
+      "html_url": "https://github.com/AtillaKuncoroDjati/EduSkillWebsite",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-05-18T14:33:23Z",
+      "pushed_at": "2026-05-18T14:28:14Z",
+      "homepage": null,
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "AtillaKuncoroDjati",
+      "description": null,
+      "html_url": "https://github.com/AtillaKuncoroDjati/AtillaKuncoroDjati",
+      "language": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-12-22T12:26:28Z",
+      "pushed_at": "2025-12-22T12:26:24Z",
+      "homepage": null,
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "Dentist_Appointment_System",
+      "description": "The Dentist Appointment System allows users to schedule appointments and share feedback, while administrators can oversee appointments, evaluate feedback, and analyze data insights via a dedicated dashboard. This platform enhances communication and simplifies the management of appointments and user engagement.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/Dentist_Appointment_System",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-05-12T14:21:52Z",
+      "pushed_at": "2025-05-12T14:21:49Z",
+      "homepage": "",
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "Restaurant-Table-Booking-System",
+      "description": "Develop a streamlined table reservation system using Laravel 9 to facilitate smooth interactions between restaurants and customers. This system simplifies the table booking process, helps manage schedules efficiently, and enhances the overall experience for both diners and restaurant staff. ",
+      "html_url": "https://github.com/AtillaKuncoroDjati/Restaurant-Table-Booking-System",
+      "language": "Blade",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-01-18T14:11:09Z",
+      "pushed_at": "2025-01-16T12:32:43Z",
+      "homepage": "",
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "Manajemen-Pertandingan-Sepak-Bola",
+      "description": "Create an efficient soccer team match management system between coaches and admins, allowing easy management of match schedules, player goal tallies, and match-related reports.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/Manajemen-Pertandingan-Sepak-Bola",
+      "language": "PHP",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-01-18T09:39:07Z",
+      "pushed_at": "2024-12-24T12:43:14Z",
+      "homepage": "",
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "PWE_Dashboard-Penjualan",
+      "description": "Membuat dashboard penjualan dengan fitur CRUD yang memungkinkan banyak penjual dan admin untuk menambah, mengedit, menghapus, dan melihat data penjualan, serta mengelola statistik dan laporan secara efisien.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/PWE_Dashboard-Penjualan",
+      "language": "PHP",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-01-18T09:37:02Z",
+      "pushed_at": "2025-01-16T06:22:35Z",
+      "homepage": "",
+      "archived": false,
+      "fork": false,
+      "topics": []
+    },
+    {
+      "name": "Flood-Data-Classification-and-Prediction-in-Jakarta-Districts-Using-the-Naive-Bayes-Method",
+      "description": "Implementation of Naïve Bayes Algorithm for Flood Prediction and Classification in Jakarta, with Visualizations Including Confusion Matrix, Pie Chart, and Geographical Mapping to Show Affected Areas",
+      "html_url": "https://github.com/AtillaKuncoroDjati/Flood-Data-Classification-and-Prediction-in-Jakarta-Districts-Using-the-Naive-Bayes-Method",
+      "language": "Jupyter Notebook",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-01-18T09:33:37Z",
+      "pushed_at": "2025-01-18T09:33:11Z",
+      "homepage": "",
+      "archived": false,
+      "fork": false,
+      "topics": []
+    }
+  ],
+  "release": {
+    "tag_name": "v2.2.0",
+    "html_url": "https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/tag/v2.2.0",
+    "published_at": "2026-09-23T12:19:45Z"
+  }
+}
