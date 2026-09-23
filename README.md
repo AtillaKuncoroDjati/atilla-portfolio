@@ -25,7 +25,9 @@ Buka `http://127.0.0.1:4173`. Proyek tidak memerlukan dependensi aplikasi tambah
 
 ## Publikasi ke Vercel
 
-Import repositori ini ke Vercel. Konfigurasi sudah tersedia di `vercel.json`:
+Repositori ini terhubung ke proyek `atilla-portfolio` di Vercel. Push ke branch `main` memicu build dan penerbitan otomatis ke [website publik](https://atillakuncorodjati.vercel.app).
+
+Untuk memakai proyek ini di akun lain, import repositorinya ke Vercel. Konfigurasi sudah tersedia di `vercel.json`:
 
 - Framework preset: Other.
 - Build command: `npm run build`.
@@ -33,7 +35,7 @@ Import repositori ini ke Vercel. Konfigurasi sudah tersedia di `vercel.json`:
 - Node.js: 24.x.
 - Fungsi server: `/api/github`.
 
-Setelah repositori terhubung, perubahan pada branch produksi dapat diterbitkan otomatis oleh Vercel.
+Status build dapat diperiksa melalui daftar deployment di Vercel atau pemeriksaan commit di GitHub. Sinkronisasi data repositori melalui `/api/github` berjalan terpisah dari penerbitan perubahan kode website.
 
 `GITHUB_TOKEN` bersifat opsional untuk menambah kuota permintaan GitHub. Jika digunakan, simpan hanya sebagai environment variable server di Vercel atau lingkungan lokal. Gunakan akses minimum untuk membaca data publik. Jangan masukkan token ke JavaScript browser, commit, atau berkas dalam `public`.
 
