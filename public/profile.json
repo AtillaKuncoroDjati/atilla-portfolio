@@ -1,6 +1,116 @@
 {
-  "resume": null,
-  "education": [],
-  "experience": [],
-  "certificates": []
+  "resume": "/documents/atilla-kuncoro-djati-cv.pdf",
+  "location": "Jakarta Barat, Indonesia",
+  "experience": [
+    {
+      "title": "UI/UX Designer",
+      "organization": "PT. Meissa Berkah Teknologi · Depok",
+      "period": "Maret – Mei 2025",
+      "kind": "Magang",
+      "description": "Merancang pengalaman dan antarmuka website berdasarkan kebutuhan pengguna.",
+      "highlights": [
+        "Menyusun use case, user flow, dan sitemap untuk struktur informasi serta navigasi.",
+        "Membuat wireframe dan desain low-fidelity hingga high-fidelity untuk halaman utama, autentikasi, pencarian, profil, dan konten.",
+        "Melakukan usability testing dengan System Usability Scale (SUS) pada 21 responden dan menyusun rekomendasi perbaikan."
+      ],
+      "url": "/documents/certificates/magang-ui-ux-meissa.pdf",
+      "linkLabel": "Lihat bukti magang ↗"
+    }
+  ],
+  "education": [
+    {
+      "title": "Sarjana Teknik Informatika",
+      "organization": "Universitas Mercu Buana · Jakarta",
+      "period": "2022 – 2026",
+      "kind": "Pendidikan",
+      "description": "Fakultas Ilmu Komputer · IPK 3,78 / 4,00.",
+      "highlights": [
+        "Skripsi: Implementasi dan Evaluasi Sistem Deteksi Kecurangan Kuis Online Berbasis Pemantauan Aktivitas Browser dan Keystroke Dynamics.",
+        "Fokus pengembangan melalui proyek web, pemrograman, pengolahan data, dan desain antarmuka."
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Programming in Python",
+      "organization": "Meta · Coursera",
+      "period": "9 Juni 2026",
+      "kind": "Kursus",
+      "description": "Dasar Python, logika pemrograman, dan struktur data.",
+      "image": "/assets/certificates/programming-in-python.png",
+      "imageWidth": 1200,
+      "imageHeight": 928,
+      "url": "/documents/certificates/programming-in-python.pdf",
+      "verificationUrl": "https://coursera.org/verify/XE1FU7KGZEFW"
+    },
+    {
+      "title": "React Basics",
+      "organization": "Meta · Coursera",
+      "period": "7 Juni 2026",
+      "kind": "Kursus",
+      "description": "Fundamental React dan pengembangan antarmuka web.",
+      "image": "/assets/certificates/react-basics.png",
+      "imageWidth": 1200,
+      "imageHeight": 928,
+      "url": "/documents/certificates/react-basics.pdf",
+      "verificationUrl": "https://coursera.org/verify/7SEQXH851YZ7"
+    },
+    {
+      "title": "HTML and CSS in depth",
+      "organization": "Meta · Coursera",
+      "period": "4 Juni 2026",
+      "kind": "Kursus",
+      "description": "Pendalaman HTML dan CSS untuk membangun halaman web.",
+      "image": "/assets/certificates/html-and-css-in-depth.png",
+      "imageWidth": 1200,
+      "imageHeight": 928,
+      "url": "/documents/certificates/html-and-css-in-depth.pdf",
+      "verificationUrl": "https://coursera.org/verify/0MI3J1MMWCIF"
+    },
+    {
+      "title": "Programming with JavaScript",
+      "organization": "Meta · Coursera",
+      "period": "3 Juni 2026",
+      "kind": "Kursus",
+      "description": "Fundamental JavaScript untuk pengembangan web.",
+      "image": "/assets/certificates/programming-with-javascript.png",
+      "imageWidth": 1200,
+      "imageHeight": 928,
+      "url": "/documents/certificates/programming-with-javascript.pdf",
+      "verificationUrl": "https://coursera.org/verify/X5YOFDLH4KIU"
+    },
+    {
+      "title": "Magang UI/UX Designer",
+      "organization": "PT. Meissa Berkah Teknologi",
+      "period": "3 Maret – 31 Mei 2025",
+      "kind": "Magang",
+      "description": "Perancangan alur pengguna, antarmuka, prototipe, dan evaluasi kegunaan website.",
+      "image": "/assets/certificates/magang-ui-ux-meissa.png",
+      "imageWidth": 1200,
+      "imageHeight": 849,
+      "url": "/documents/certificates/magang-ui-ux-meissa.pdf"
+    },
+    {
+      "title": "Finalis Aplikasi TI — PHKM 2024",
+      "organization": "Fakultas Ilmu Komputer · Universitas Mercu Buana",
+      "period": "26 Juli 2024",
+      "kind": "Prestasi",
+      "description": "Lafapra, sistem reservasi meja restoran, menjadi finalis Pameran Hasil Karya Mahasiswa.",
+      "image": "/assets/certificates/finalis-phkm-2024.png",
+      "imageWidth": 1200,
+      "imageHeight": 849,
+      "url": "/documents/certificates/finalis-phkm-2024.pdf"
+    },
+    {
+      "title": "CCNAv7: Introduction to Networks",
+      "organization": "Cisco Networking Academy · Universitas Mercu Buana",
+      "period": "10 Juli 2023",
+      "kind": "Kursus",
+      "description": "Penyelesaian kursus dasar jaringan, pengalamatan IP, konfigurasi perangkat, dan troubleshooting.",
+      "image": "/assets/certificates/ccnav7-introduction-to-networks.png",
+      "imageWidth": 1200,
+      "imageHeight": 849,
+      "url": "/documents/certificates/ccnav7-introduction-to-networks.pdf"
+    }
+  ]
 }

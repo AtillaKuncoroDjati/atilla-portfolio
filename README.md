@@ -6,17 +6,18 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 
 ## Isi website
 
-- Profil, minat, dan kontak berdasarkan profil GitHub publik.
+- Profil, foto, pendidikan, pengalaman magang, dan kontak berdasarkan CV Atilla.
 - Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
-- Kelompok kemampuan Web, Desktop, dan Data, dengan contoh proyek terkait.
+- Kelompok kemampuan Web, Desktop, Data, dan UI/UX, dengan contoh proyek atau pengalaman terkait.
 - Ringkasan jumlah karya, bahasa utama repositori, dan stars berdasarkan data publik.
 - Tata letak responsif untuk desktop dan ponsel.
 - Menu ponsel, dialog dengan dukungan keyboard, serta pengurangan animasi mengikuti preferensi perangkat.
 - Data tersimpan sebagai cadangan saat GitHub tidak tersedia.
-- Dukungan data CV, pendidikan, pengalaman, dan sertifikat melalui `public/profile.json`.
+- Unduh CV asli serta tujuh kartu sertifikat/prestasi dengan pratinjau, PDF asli, dan tautan verifikasi penerbit jika tersedia.
+- Screenshot EduSkill, Dashboard Penjualan, dan Manajemen Sepak Bola pada kartu dan detail proyek.
 
 ## Menjalankan secara lokal
 
@@ -53,18 +54,19 @@ Fungsi membaca profil publik, hingga 100 repositori terbaru milik Atilla, serta 
 
 Hasil disimpan sementara selama 15 menit. CDN dapat menyajikan hasil sebelumnya sambil memperbarui cache. Jika permintaan GitHub gagal, website memakai salinan tersimpan dan menandainya pada halaman. Tidak diperlukan database.
 
-Nama tampilan, kategori, dan cerita proyek berada di `public/projects.js`, dirangkum dari README dan deskripsi publik repositori. Proyek baru yang belum memiliki cerita khusus tetap ditampilkan menggunakan data GitHub. Teks profil, kontak, dan gambar unggulan berada di `public/index.html`. Memperbarui bio atau kontak di README profil GitHub tidak otomatis mengganti teks editorial di website.
+Nama tampilan, kategori, dan cerita proyek berada di `public/projects.js`, dirangkum dari dokumentasi repositori dan CV Atilla. Proyek baru yang belum memiliki cerita khusus tetap ditampilkan menggunakan data GitHub. Teks profil, kontak, dan foto berada di `public/index.html`; CV serta rekam jejak berada di `public/profile.json`. Lokasi dari `profile.json` diprioritaskan atas lokasi GitHub. Memperbarui bio atau kontak di README profil GitHub tidak otomatis mengganti teks editorial di website.
 
 Jumlah bahasa pada bagian GitHub menghitung bahasa utama yang berbeda di repositori karya, bukan tingkat penguasaan. Tahun pada kartu adalah tahun pembaruan repositori, bukan klaim tahun penyelesaian proyek.
 
 ## Menambahkan CV dan rekam jejak
 
-Isi `public/profile.json` setelah bahan pribadi tersedia. Nilai awal sengaja kosong; tombol CV dan bagian rekam jejak baru muncul ketika ada data, sehingga website tidak menampilkan informasi contoh sebagai fakta.
+Perbarui `public/profile.json` untuk mengelola bahan pribadi. Tombol CV dan bagian rekam jejak hanya muncul ketika ada data.
 
-- `resume`: alamat PDF, misalnya `/documents/atilla-cv.pdf`.
-- `experience`: daftar pengalaman dengan `title`, `organization`, `period`, dan `description`.
+- `resume`: alamat PDF, saat ini `/documents/atilla-kuncoro-djati-cv.pdf`.
+- `location`: lokasi yang ditampilkan pada bagian pembuka.
+- `experience`: daftar pengalaman dengan `title`, `organization`, `period`, `kind`, `description`, dan `highlights` (daftar poin opsional).
 - `education`: daftar pendidikan dengan field yang sama.
-- `certificates`: daftar sertifikat dengan `title`, `organization`, `period`, serta `image` dan `url` jika tersedia.
+- `certificates`: daftar sertifikat/prestasi dengan `title`, `organization`, `period`, `kind`, `description`, `image`, `imageWidth`, `imageHeight`, serta `url` untuk PDF asli. `verificationUrl` digunakan untuk tautan verifikasi penerbit.
 
 Contoh format satu entri sertifikat (ganti seluruh isinya dengan data sebenarnya):
 
@@ -75,11 +77,42 @@ Contoh format satu entri sertifikat (ganti seluruh isinya dengan data sebenarnya
   "period": "Bulan dan tahun terbit",
   "description": "Ringkasan kompetensi yang dipelajari",
   "image": "/assets/certificates/nama-sertifikat.png",
-  "url": "https://alamat-verifikasi-sertifikat"
+  "url": "/documents/certificates/nama-sertifikat.pdf",
+  "verificationUrl": "https://alamat-verifikasi-sertifikat"
 }
 ```
 
-Simpan PDF dalam `public/documents/` dan gambar dalam `public/assets/`. Gunakan materi yang memang ingin ditampilkan secara publik. Bagian yang belum memiliki isi tidak ditampilkan. Foto/ilustrasi pribadi nantinya dapat menggantikan monogram AKD pada bagian Tentang.
+Simpan PDF dalam `public/documents/` dan gambar dalam `public/assets/`. Gunakan materi yang memang ingin ditampilkan secara publik. Bagian yang belum memiliki isi tidak ditampilkan. PDF dan foto yang diberikan Atilla disalin tanpa mengubah dokumen aslinya; pratinjau sertifikat dirender dari halaman pertama PDF.
+
+Materi yang terpasang mencakup empat kursus Meta/Coursera (Python, React, HTML/CSS, JavaScript), magang UI/UX di PT. Meissa Berkah Teknologi, finalis PHKM 2024 untuk Lafapra, dan kursus CCNAv7: Introduction to Networks. CCNAv7 ditampilkan sebagai penyelesaian kursus, bukan sertifikasi profesional CCNA. Asesmen Software Engineer BNSP tercantum dalam CV, tetapi belum dibuatkan kartu bukti karena berkas sertifikat terpisah belum disediakan.
+
+## Pemetaan gambar proyek
+
+| Materi dari Atilla | Proyek | Lokasi gambar |
+| --- | --- | --- |
+| Screenshot 2026-09-24 141555 | EduSkill | `public/assets/projects/eduskill-dashboard.png` |
+| Dashboard Penjualan | PWE Dashboard Penjualan | `public/assets/projects/dashboard-penjualan.png` |
+| Dashboard Pertandingan Sepak Bola | Manajemen Pertandingan Sepak Bola | `public/assets/projects/manajemen-sepak-bola.png` |
+| Photo Profile saya | Profil Atilla | `public/assets/profile/atilla-kuncoro-djati.png` |
+
+Untuk menambahkan screenshot proyek, isi `image`, `imageAlt`, `imageWidth`, dan `imageHeight` pada entri katalog di `public/projects.js`. Kartu proyek menampilkan pratinjau; detail proyek menyediakan tautan gambar ukuran penuh.
+
+<details>
+<summary>Pratinjau antarmuka proyek</summary>
+
+**EduSkill**
+
+![Dashboard administrator EduSkill](public/assets/projects/eduskill-dashboard.png)
+
+**Dashboard Penjualan**
+
+![Daftar produk Dashboard Penjualan](public/assets/projects/dashboard-penjualan.png)
+
+**Manajemen Pertandingan Sepak Bola**
+
+![Dashboard Manajemen Pertandingan Sepak Bola](public/assets/projects/manajemen-sepak-bola.png)
+
+</details>
 
 ## Pemeriksaan tampilan
 
@@ -100,4 +133,6 @@ tests/        Pemeriksaan penanganan data
 
 Pratinjau Bening Studio berasal dari [repositori Bening Studio](https://github.com/AtillaKuncoroDjati/Bening-Studio). Foto harimau dalam pratinjau berasal dari contoh publik rembg; atribusi dan lisensinya tersedia dalam [catatan gambar Bening](https://github.com/AtillaKuncoroDjati/Bening-Studio/blob/main/docs/images/README.md). Font DM Sans dan Barlow Condensed dimuat dari Google Fonts dengan font sistem sebagai cadangan.
 
-Bentuk bintang, monogram AKD, pola titik, dan ilustrasi tipografi dibuat dengan CSS/SVG untuk portofolio ini. Persona 5 menjadi referensi gaya visual. Struktur studi kasus dan penyajian profil juga mendapat inspirasi dari portofolio [Muhammad Danu Setiawan](https://muhammaddanusetiawan.vercel.app/) dan [Mochammad Irsyad Kurniawan](https://mochammadirsyadkurniawan-portfolio.vercel.app/).
+Foto profil, screenshot proyek tambahan, CV, dan sertifikat disediakan oleh Atilla. Nama, logo, dan tanda tangan pada sertifikat tetap menjadi bagian dokumen penerbit aslinya.
+
+Bentuk bintang, wordmark AKD, pola titik, dan ilustrasi tipografi dibuat dengan CSS/SVG untuk portofolio ini. Persona 5 menjadi referensi gaya visual. Struktur studi kasus dan penyajian profil juga mendapat inspirasi dari portofolio [Muhammad Danu Setiawan](https://muhammaddanusetiawan.vercel.app/) dan [Mochammad Irsyad Kurniawan](https://mochammadirsyadkurniawan-portfolio.vercel.app/).

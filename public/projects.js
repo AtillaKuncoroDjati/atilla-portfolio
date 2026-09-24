@@ -11,10 +11,11 @@ export const catalog = {
     image: '/assets/bening-studio.png', imageAlt: 'Pratinjau antarmuka Bening Studio'
   },
   EduSkillWebsite: {
+    image: '/assets/projects/eduskill-dashboard.png', imageAlt: 'Dashboard administrator EduSkill dengan statistik kursus, pengguna, enrollment, dan notifikasi kuis', imageWidth: 1919, imageHeight: 943,
     title: 'EduSkill', category: 'web', art: 'LEARN.\nREPEAT.', stack: ['Laravel', 'PHP', 'Blade', 'MySQL', 'JavaScript'],
     summary: 'Platform pembelajaran dengan kursus bertahap, materi, kuis, progres belajar, dan sertifikat penyelesaian.',
     purpose: 'Menghubungkan pengelolaan materi oleh admin dengan alur belajar peserta yang terstruktur, dari pendaftaran kursus sampai penyelesaian modul.',
-    features: ['Pengelolaan kursus, modul, materi teks/PDF, dan peserta.', 'Prasyarat kursus serta pembukaan konten secara berurutan.', 'Kuis pilihan ganda dan esai dengan penilaian otomatis atau manual.', 'Dashboard admin dan pengguna, progres belajar, serta unduh sertifikat.'],
+    features: ['Pengelolaan kursus, modul, materi teks/PDF, dan peserta.', 'Prasyarat kursus serta pembukaan konten secara berurutan.', 'Kuis pilihan ganda dan esai dengan penilaian otomatis atau manual.', 'Dashboard admin dan pengguna, progres belajar, serta unduh sertifikat.', 'Quiz Integrity Mode untuk mencatat perpindahan tab, kehilangan fokus browser, dan pelanggaran selama kuis.'],
     approach: 'Laravel dan Blade digunakan untuk alur aplikasi, MySQL untuk penyimpanan data, serta JavaScript, jQuery, dan AJAX untuk interaksi. Dokumentasi repositori menjelaskan aturan progres dan proses penilaian.'
   },
   Dentist_Appointment_System: {
@@ -32,6 +33,7 @@ export const catalog = {
     approach: 'Dibangun menggunakan Laravel. Ringkasan proyek dan pratinjau halaman utama tersedia pada repositori.'
   },
   'Manajemen-Pertandingan-Sepak-Bola': {
+    image: '/assets/projects/manajemen-sepak-bola.png', imageAlt: 'Dashboard Manajemen Pertandingan Sepak Bola dengan jumlah pemain, pertandingan, gol, dan grafik bulanan', imageWidth: 1430, imageHeight: 736,
     title: 'Manajemen Sepak Bola', category: 'web', art: 'PLAY.\nORGANIZE.', stack: ['Laravel', 'PHP'],
     summary: 'Pengelolaan pertandingan untuk pelatih dan admin, mulai dari jadwal hingga catatan gol serta laporan.',
     purpose: 'Membantu pengelolaan informasi pertandingan tim sepak bola dalam satu sistem.',
@@ -39,6 +41,7 @@ export const catalog = {
     approach: 'Repositori menggunakan Laravel dan PHP. Informasi fitur dirangkum dari deskripsi publik proyek.'
   },
   'PWE_Dashboard-Penjualan': {
+    image: '/assets/projects/dashboard-penjualan.png', imageAlt: 'Halaman daftar produk Dashboard Penjualan dengan fitur tambah, edit, dan hapus produk', imageWidth: 1917, imageHeight: 1020,
     title: 'Dashboard Penjualan', category: 'web', art: 'TRACK.\nGROW.', stack: ['Laravel', 'PHP', 'MySQL'],
     summary: 'Dashboard pengelolaan produk dan penjualan dengan operasi CRUD, statistik, serta laporan PDF.',
     purpose: 'Memusatkan pengelolaan produk dan laporan penjualan untuk pengguna serta administrator.',

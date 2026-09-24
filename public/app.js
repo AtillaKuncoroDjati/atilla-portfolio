@@ -9,6 +9,7 @@ let currentProject = null;
 let lastOpener = null;
 let latestRelease = 'https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/latest';
 let ready = false;
+let profileLocation = '';
 
 function element(tag, className = '', content) {
   const node = document.createElement(tag);
@@ -37,6 +38,13 @@ function renderCard(project) {
   const art = element('div', 'card-art');
   art.dataset.category = project.category; art.setAttribute('aria-hidden', 'true');
   art.append(element('span', 'card-art-word', project.art), element('span', 'card-art-index', index));
+  if (project.image) {
+    art.classList.add('card-art-preview');
+    const image = element('img');
+    image.src = project.image; image.alt = ''; image.loading = 'lazy'; image.decoding = 'async';
+    image.width = project.imageWidth || 1260; image.height = project.imageHeight || 840;
+    art.replaceChildren(image, element('span', 'card-preview-label', 'INTERFACE / ' + index));
+  }
   const body = element('div', 'card-content');
   const topline = element('div', 'project-topline');
   const date = new Date(project.updated_at);
@@ -85,7 +93,7 @@ function render(data, live = false) {
   $('#stat-projects').textContent = summary.count;
   $('#stat-languages').textContent = summary.languages;
   $('#stat-stars').textContent = summary.stars;
-  if (data.profile?.location) $('#location').textContent = data.profile.location;
+  if (profileLocation || data.profile?.location) $('#location').textContent = profileLocation || data.profile.location;
   if (data.release?.tag_name) $('#release-tag').textContent = data.release.tag_name;
   if (data.release?.html_url) latestRelease = safeGitHubUrl(data.release.html_url, latestRelease);
   $('#download-link').href = latestRelease;
@@ -114,8 +122,11 @@ function openProject(project) {
   fragment.append(element('p', 'dialog-kicker', categoryLabels[project.category] + ' / CASE FILE ' + String(projects.indexOf(project) + 1).padStart(2, '0')), title, element('p', 'dialog-summary', project.summary), tags(project.stack));
   if (project.image) {
     const image = element('img', 'dialog-image');
-    image.src = project.image; image.alt = project.imageAlt || project.title; image.width = 1260; image.height = 840;
-    fragment.append(image);
+    image.src = project.image; image.alt = project.imageAlt || project.title;
+    image.width = project.imageWidth || 1260; image.height = project.imageHeight || 840;
+    const preview = externalLink('', project.image, 'dialog-preview');
+    preview.append(image, element('span', '', 'Lihat gambar ukuran penuh ↗'));
+    fragment.append(preview);
   }
   if (project.purpose) fragment.append(detailSection('IDENYA', project.purpose));
   if (project.features?.length) fragment.append(detailSection('APA YANG BISA DILAKUKAN?', project.features));
@@ -124,7 +135,7 @@ function openProject(project) {
   const actions = element('div', 'dialog-actions');
   actions.append(externalLink('KODE & DOKUMENTASI ↗', project.url, 'button button-red'));
   if (project.name === 'Bening-Studio') actions.append(externalLink('UNDUH BENING STUDIO ↓', latestRelease, 'button'));
-  fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi publik proyek. Detail terbaru tersedia di repositori GitHub.'));
+  fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
   content.replaceChildren(fragment);
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
@@ -190,29 +201,54 @@ async function loadProfile() {
     const response = await fetch('/profile.json');
     if (!response.ok) return;
     const profile = await response.json();
+    if (typeof profile.location === 'string' && profile.location.trim()) {
+      profileLocation = profile.location;
+      $('#location').textContent = profileLocation;
+    }
     const resume = safePublicUrl(profile.resume);
     if (resume) {
-      const link = $('#resume-link'); link.href = resume; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.hidden = false;
+      const link = $('#resume-link'); link.href = resume; link.download = 'CV-Atilla-Kuncoro-Djati.pdf'; link.hidden = false;
     }
     let count = 0;
     const container = $('#records-content');
-    for (const [key, heading] of [['experience', 'PENGALAMAN'], ['education', 'PENDIDIKAN'], ['certificates', 'SERTIFIKAT']]) {
+    for (const [key, heading] of [['experience', 'PENGALAMAN'], ['education', 'PENDIDIKAN'], ['certificates', 'SERTIFIKAT & PRESTASI']]) {
       const items = Array.isArray(profile[key]) ? profile[key].filter(item => item && typeof item.title === 'string' && item.title.trim()) : [];
       if (!items.length) continue;
       count += items.length;
       const section = element('section', 'record-group');
+      section.dataset.kind = key;
+      if (key === 'certificates') section.id = 'sertifikat';
       section.append(element('h3', '', heading));
+      if (key === 'certificates') section.append(element('p', 'record-intro', 'Jejak belajar dan pencapaian. Buka dokumen asli atau periksa kredensial melalui penerbitnya.'));
       const grid = element('div', 'record-grid');
       for (const item of items) {
         const card = element('article', 'record-card');
         const imageUrl = safePublicUrl(item.image);
-        if (imageUrl) {
-          const image = element('img'); image.src = imageUrl; image.alt = item.title; image.loading = 'lazy'; card.append(image);
-        }
-        card.append(element('small', '', item.period || ''), element('h4', '', item.title), element('p', '', item.organization || ''));
-        if (item.description) card.append(element('p', '', item.description));
         const linkUrl = safePublicUrl(item.url);
-        if (linkUrl) card.append(externalLink(key === 'certificates' ? 'Lihat sertifikat ↗' : 'Informasi lengkap ↗', linkUrl));
+        if (imageUrl) {
+          const image = element('img'); image.src = imageUrl; image.alt = 'Pratinjau ' + item.title + ' — Atilla Kuncoro Djati'; image.loading = 'lazy'; image.decoding = 'async';
+          if (item.imageWidth && item.imageHeight) { image.width = item.imageWidth; image.height = item.imageHeight; }
+          const preview = linkUrl ? externalLink('', linkUrl, 'record-preview') : element('div', 'record-preview');
+          if (linkUrl) preview.setAttribute('aria-label', 'Buka PDF: ' + item.title);
+          preview.append(image); card.append(preview);
+        }
+        const body = element('div', 'record-body');
+        const meta = element('div', 'record-meta');
+        if (item.kind) meta.append(element('span', 'record-kind', item.kind));
+        meta.append(element('small', '', item.period || ''));
+        body.append(meta, element('h4', '', item.title), element('p', 'record-organization', item.organization || ''));
+        if (item.description) body.append(element('p', 'record-description', item.description));
+        if (Array.isArray(item.highlights) && item.highlights.length) {
+          const list = element('ul', 'record-highlights');
+          item.highlights.forEach(text => list.append(element('li', '', text)));
+          body.append(list);
+        }
+        const actions = element('div', 'record-actions');
+        if (linkUrl) actions.append(externalLink(item.linkLabel || (key === 'certificates' ? 'Buka PDF ↗' : 'Informasi lengkap ↗'), linkUrl));
+        const verificationUrl = safePublicUrl(item.verificationUrl);
+        if (verificationUrl) actions.append(externalLink('Verifikasi ↗', verificationUrl));
+        if (actions.childElementCount) body.append(actions);
+        card.append(body);
         grid.append(card);
       }
       section.append(grid); container.append(section);
