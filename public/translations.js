@@ -1,4 +1,5 @@
 export const english = {
+  'Pesan dari':'Message from','Nama':'Name',
   'Halaman utama Dentist Appointment Kanna Dentist dengan informasi layanan dan tombol pemesanan janji temu': 'Kanna Dentist Appointment homepage with service information and an appointment booking button',
   'Data GitHub':'GitHub data','salinan tersimpan':'saved snapshot',
   'Lewati ke konten':'Skip to content',

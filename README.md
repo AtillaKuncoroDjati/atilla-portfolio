@@ -15,9 +15,9 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
-- Toolkit bergaya grid referensi dengan Programming, Frontend, Backend, Database, AI & ML, UI/UX, dan Dev Tools, lengkap dengan logo teknologi dan tautan karya terkait.
+- Toolkit berisi Programming, Frontend, Backend, Database, AI & ML, UI/UX, dan Dev Tools. Setiap item memiliki logo berukuran besar, tanpa tombol tambahan pada kartu.
 - Panel GitHub berisi commit publik, stars, repositori, proporsi bahasa, kalender kontribusi interaktif, dan streak dari data asli.
-- Kontak Instagram, LinkedIn, email, telepon, dan WhatsApp. Formulir pesan menyiapkan email baru melalui aplikasi email pengunjung.
+- Kartu kontak email, Instagram, LinkedIn, dan GitHub. Klik nomor telepon langsung membuka WhatsApp. Formulir menyiapkan email dengan subjek “Pesan dari [nama]” atau “Message from [name]” sesuai bahasa halaman melalui aplikasi email pengunjung.
 - Tata letak responsif untuk desktop dan ponsel.
 - Menu ponsel, dialog dengan dukungan keyboard, serta pengurangan animasi mengikuti preferensi perangkat.
 - Data tersimpan sebagai cadangan saat GitHub tidak tersedia.
