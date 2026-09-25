@@ -4,7 +4,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "public",
   "cleanUrls": true,
-  "functions": { "api/github.js": { "maxDuration": 30 } },
+  "functions": {
+    "api/github.js": { "maxDuration": 30 },
+    "api/activity.js": { "maxDuration": 30 }
+  },
   "headers": [
     {
       "source": "/(.*)",

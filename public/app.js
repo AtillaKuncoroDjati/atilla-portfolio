@@ -1,4 +1,7 @@
 import { getProjects, filterProjects, summarizeProjects, categoryLabels, safeGitHubUrl, safePublicUrl } from './projects.js';
+import { enhanceMotion } from './interactions.js';
+import { t, locale, translateTree } from './i18n.js';
+import './activity.js';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#project-dialog');
@@ -10,6 +13,8 @@ let lastOpener = null;
 let latestRelease = 'https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/latest';
 let ready = false;
 let profileLocation = '';
+let lastData = null;
+let lastLive = false;
 
 function element(tag, className = '', content) {
   const node = document.createElement(tag);
@@ -75,7 +80,9 @@ function renderProjects() {
     empty.append(reset); fragment.append(empty);
   }
   $('#project-grid').replaceChildren(fragment);
-  $('#results-label').textContent = ready ? visible.length + ' dari ' + projects.length + ' karya' + (featuredVisible ? ' · termasuk proyek unggulan di atas' : '') : '';
+  translateTree($('#project-grid'));
+  enhanceMotion($('#project-grid'));
+  $('#results-label').textContent = ready ? t(visible.length + ' dari ' + projects.length + ' karya' + (featuredVisible ? ' · termasuk proyek unggulan di atas' : '')) : '';
 }
 function setCategory(category) {
   activeCategory = category;
@@ -84,22 +91,25 @@ function setCategory(category) {
 }
 function render(data, live = false) {
   if (!data || !Array.isArray(data.repos)) throw new Error('Invalid portfolio data');
+  lastData = data; lastLive = live;
   projects = getProjects(data.repos);
   ready = true;
   renderProjects();
   const summary = summarizeProjects(projects);
-  $('#project-count').textContent = summary.count + ' karya publik · GitHub';
+  $('#project-count').textContent = t(summary.count + ' karya publik · GitHub');
   $('#hero-project-count').textContent = String(summary.count).padStart(2, '0');
+  $('#passport-projects').textContent = String(summary.count).padStart(2, '0');
+  $('#passport-repos').textContent = data.profile?.public_repos ?? '—';
+  $('#passport-followers').textContent = data.profile?.followers ?? '—';
   $('#stat-projects').textContent = summary.count;
   $('#stat-languages').textContent = summary.languages;
-  $('#stat-stars').textContent = summary.stars;
-  if (profileLocation || data.profile?.location) $('#location').textContent = profileLocation || data.profile.location;
+  if (profileLocation || data.profile?.location) $('#location').textContent = t(profileLocation || data.profile.location);
   if (data.release?.tag_name) $('#release-tag').textContent = data.release.tag_name;
   if (data.release?.html_url) latestRelease = safeGitHubUrl(data.release.html_url, latestRelease);
   $('#download-link').href = latestRelease;
   const date = new Date(data.updatedAt);
-  const label = Number.isNaN(date.getTime()) ? 'Data GitHub' : 'Data GitHub · ' + new Intl.DateTimeFormat('id-ID', {day:'numeric', month:'short', year:'numeric'}).format(date);
-  $('#sync-label').textContent = live ? label : label + ' · salinan tersimpan';
+  const label = Number.isNaN(date.getTime()) ? t('Data GitHub') : t('Data GitHub') + ' · ' + new Intl.DateTimeFormat(locale(), {day:'numeric', month:'short', year:'numeric'}).format(date);
+  $('#sync-label').textContent = live ? label : label + ' · ' + t('salinan tersimpan');
   followHash();
 }
 function detailSection(title, content) {
@@ -137,6 +147,7 @@ function openProject(project) {
   if (project.name === 'Bening-Studio') actions.append(externalLink('UNDUH BENING STUDIO ↓', latestRelease, 'button'));
   fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
   content.replaceChildren(fragment);
+  translateTree(content);
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   document.body.classList.add('modal-open');
@@ -167,6 +178,10 @@ dialog.addEventListener('close', () => {
 window.addEventListener('hashchange', followHash);
 
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => setCategory(button.dataset.filter)));
+document.addEventListener('portfolio:filter', event => {
+  if (!['web', 'data', 'desktop', 'all'].includes(event.detail)) return;
+  currentQuery = ''; $('#project-search').value = ''; setCategory(event.detail);
+});
 $('#project-search').addEventListener('input', event => { currentQuery = event.target.value; renderProjects(); });
 document.addEventListener('keydown', event => {
   const editing = event.target instanceof HTMLElement && (event.target.matches('input, textarea, select') || event.target.isContentEditable);
@@ -203,7 +218,7 @@ async function loadProfile() {
     const profile = await response.json();
     if (typeof profile.location === 'string' && profile.location.trim()) {
       profileLocation = profile.location;
-      $('#location').textContent = profileLocation;
+      $('#location').textContent = t(profileLocation);
     }
     const resume = safePublicUrl(profile.resume);
     if (resume) {
@@ -219,10 +234,33 @@ async function loadProfile() {
       section.dataset.kind = key;
       if (key === 'certificates') section.id = 'sertifikat';
       section.append(element('h3', '', heading));
-      if (key === 'certificates') section.append(element('p', 'record-intro', 'Jejak belajar dan pencapaian. Buka dokumen asli atau periksa kredensial melalui penerbitnya.'));
+      if (key === 'certificates') section.append(element('p', 'record-intro', 'Jejak belajar dan pencapaian. Pilih kategori, lalu buka dokumen atau verifikasi dari penerbitnya.'));
       const grid = element('div', 'record-grid');
+      if (key === 'certificates') {
+        const filters = element('div', 'certificate-filters');
+        filters.setAttribute('role', 'group'); filters.setAttribute('aria-label', 'Filter sertifikat dan prestasi');
+        const result = element('p', 'certificate-results', items.length + ' dokumen');
+        result.setAttribute('role', 'status');
+        for (const kind of ['Semua', ...new Set(items.map(item => item.kind).filter(Boolean))]) {
+          const button = element('button', '', kind);
+          button.type = 'button'; button.setAttribute('aria-pressed', String(kind === 'Semua'));
+          button.addEventListener('click', () => {
+            filters.querySelectorAll('button').forEach(node => node.setAttribute('aria-pressed', String(node === button)));
+            let visible = 0;
+            grid.querySelectorAll('.record-card').forEach(card => {
+              card.hidden = kind !== 'Semua' && card.dataset.kind !== kind;
+              if (!card.hidden) visible++;
+            });
+            result.textContent = visible + ' dokumen' + (kind === 'Semua' ? '' : ' · ' + kind);
+            translateTree(section);
+          });
+          filters.append(button);
+        }
+        section.append(filters, result);
+      }
       for (const item of items) {
         const card = element('article', 'record-card');
+        card.dataset.kind = item.kind || '';
         const imageUrl = safePublicUrl(item.image);
         const linkUrl = safePublicUrl(item.url);
         if (imageUrl) {
@@ -254,6 +292,8 @@ async function loadProfile() {
       section.append(grid); container.append(section);
     }
     $('#rekam-jejak').hidden = count === 0; $('#records-nav').hidden = count === 0;
+    translateTree(container);
+    enhanceMotion(container);
   } catch { /* Optional records stay hidden until real materials are available. */ }
 }
 async function load() {
@@ -270,4 +310,5 @@ async function load() {
   }
 }
 $('#year').textContent = new Date().getFullYear();
+document.addEventListener('languagechange', () => { if (lastData) render(lastData, lastLive); });
 load(); loadProfile();

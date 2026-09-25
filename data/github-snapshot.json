@@ -1,16 +1,28 @@
 {
-  "updatedAt": "2026-09-23T13:00:55.9320775Z",
   "profile": {
     "login": "AtillaKuncoroDjati",
     "name": "AtillaKuncoroDjati",
-    "bio": null,
+    "bio": "",
     "location": "Jakarta, Indonesia",
     "avatar_url": "https://avatars.githubusercontent.com/u/182108483?v=4",
     "html_url": "https://github.com/AtillaKuncoroDjati",
-    "public_repos": 8,
+    "public_repos": 9,
     "followers": 6
   },
   "repos": [
+    {
+      "name": "atilla-portfolio",
+      "description": "Portofolio Atilla Kuncoro Djati dengan data proyek dari GitHub, siap dipublikasikan ke Vercel.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/atilla-portfolio",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-24T08:15:37Z",
+      "pushed_at": "2026-09-24T08:15:30Z",
+      "fork": false,
+      "archived": false,
+      "topics": []
+    },
     {
       "name": "Bening-Studio",
       "description": "Aplikasi Windows portable untuk menghapus background dan mengubah ukuran gambar secara offline.",
@@ -20,9 +32,8 @@
       "forks_count": 0,
       "updated_at": "2026-09-23T12:13:46Z",
       "pushed_at": "2026-09-23T12:19:45Z",
-      "homepage": null,
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -34,23 +45,21 @@
       "forks_count": 0,
       "updated_at": "2026-05-18T14:33:23Z",
       "pushed_at": "2026-05-18T14:28:14Z",
-      "homepage": null,
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
       "name": "AtillaKuncoroDjati",
-      "description": null,
+      "description": "",
       "html_url": "https://github.com/AtillaKuncoroDjati/AtillaKuncoroDjati",
       "language": null,
       "stargazers_count": 0,
       "forks_count": 0,
       "updated_at": "2025-12-22T12:26:28Z",
       "pushed_at": "2025-12-22T12:26:24Z",
-      "homepage": null,
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -62,9 +71,8 @@
       "forks_count": 0,
       "updated_at": "2025-05-12T14:21:52Z",
       "pushed_at": "2025-05-12T14:21:49Z",
-      "homepage": "",
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -76,9 +84,8 @@
       "forks_count": 0,
       "updated_at": "2025-01-18T14:11:09Z",
       "pushed_at": "2025-01-16T12:32:43Z",
-      "homepage": "",
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -90,9 +97,8 @@
       "forks_count": 0,
       "updated_at": "2025-01-18T09:39:07Z",
       "pushed_at": "2024-12-24T12:43:14Z",
-      "homepage": "",
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -104,9 +110,8 @@
       "forks_count": 0,
       "updated_at": "2025-01-18T09:37:02Z",
       "pushed_at": "2025-01-16T06:22:35Z",
-      "homepage": "",
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     },
     {
@@ -118,9 +123,8 @@
       "forks_count": 0,
       "updated_at": "2025-01-18T09:33:37Z",
       "pushed_at": "2025-01-18T09:33:11Z",
-      "homepage": "",
-      "archived": false,
       "fork": false,
+      "archived": false,
       "topics": []
     }
   ],
@@ -128,5 +132,7 @@
     "tag_name": "v2.2.0",
     "html_url": "https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/tag/v2.2.0",
     "published_at": "2026-09-23T12:19:45Z"
-  }
+  },
+  "updatedAt": "2026-09-24T08:39:55.083Z",
+  "stale": false
 }

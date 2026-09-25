@@ -7,8 +7,8 @@ const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=ut
 const server = createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    if (pathname === '/api/github') {
-      const { default: handler } = await import('../api/github.js');
+    if (pathname === '/api/github' || pathname === '/api/activity') {
+      const { default: handler } = await import(pathname === '/api/github' ? '../api/github.js' : '../api/activity.js');
       return handler(req, res);
     }
     const path = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));

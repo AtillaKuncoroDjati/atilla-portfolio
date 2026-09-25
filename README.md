@@ -7,17 +7,21 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 ## Isi website
 
 - Profil, foto, pendidikan, pengalaman magang, dan kontak berdasarkan CV Atilla.
+- Foto pada halaman pembuka berupa kartu yang dapat dibalik. Pilihan Web/UI/UX/Data memperkenalkan fokus dan mengarahkan ke karya atau pengalaman terkait.
+- Pilihan bahasa Indonesia/Inggris dan tema gelap/terang tersimpan pada perangkat pengunjung.
+- Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Tombol animasi dapat menghentikan gerakan dan tetap menghormati pengaturan pengurangan gerakan perangkat.
 - Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
 - Kelompok kemampuan Web, Desktop, Data, dan UI/UX, dengan contoh proyek atau pengalaman terkait.
-- Ringkasan jumlah karya, bahasa utama repositori, dan stars berdasarkan data publik.
+- Panel GitHub berisi commit publik, stars, repositori, proporsi bahasa, kalender kontribusi interaktif, dan streak dari data asli.
+- Kontak Instagram, LinkedIn, email, telepon, dan WhatsApp. Instagram mengacu pada tautan sosial profil GitHub; telepon mengacu pada CV.
 - Tata letak responsif untuk desktop dan ponsel.
 - Menu ponsel, dialog dengan dukungan keyboard, serta pengurangan animasi mengikuti preferensi perangkat.
 - Data tersimpan sebagai cadangan saat GitHub tidak tersedia.
-- Unduh CV asli serta tujuh kartu sertifikat/prestasi dengan pratinjau, PDF asli, dan tautan verifikasi penerbit jika tersedia.
-- Screenshot EduSkill, Dashboard Penjualan, dan Manajemen Sepak Bola pada kartu dan detail proyek.
+- Unduh CV asli serta tujuh kartu sertifikat/prestasi dengan filter kategori, pratinjau, PDF asli, dan tautan verifikasi penerbit jika tersedia.
+- Screenshot EduSkill, Dentist Appointment, Dashboard Penjualan, dan Manajemen Sepak Bola pada kartu dan detail proyek.
 
 ## Menjalankan secara lokal
 
@@ -40,7 +44,7 @@ Untuk memakai proyek ini di akun lain, import repositorinya ke Vercel. Konfigura
 - Build command: `npm run build`.
 - Output directory: `public`.
 - Node.js: 24.x.
-- Fungsi server: `/api/github`.
+- Fungsi server: `/api/github` dan `/api/activity`.
 
 Status build dapat diperiksa melalui daftar deployment di Vercel atau pemeriksaan commit di GitHub. Sinkronisasi data repositori melalui `/api/github` berjalan terpisah dari penerbitan perubahan kode website.
 
@@ -57,6 +61,24 @@ Hasil disimpan sementara selama 15 menit. CDN dapat menyajikan hasil sebelumnya 
 Nama tampilan, kategori, dan cerita proyek berada di `public/projects.js`, dirangkum dari dokumentasi repositori dan CV Atilla. Proyek baru yang belum memiliki cerita khusus tetap ditampilkan menggunakan data GitHub. Teks profil, kontak, dan foto berada di `public/index.html`; CV serta rekam jejak berada di `public/profile.json`. Lokasi dari `profile.json` diprioritaskan atas lokasi GitHub. Memperbarui bio atau kontak di README profil GitHub tidak otomatis mengganti teks editorial di website.
 
 Jumlah bahasa pada bagian GitHub menghitung bahasa utama yang berbeda di repositori karya, bukan tingkat penguasaan. Tahun pada kartu adalah tahun pembaruan repositori, bukan klaim tahun penyelesaian proyek.
+
+### Aktivitas GitHub
+
+`/api/activity` memuat tiga sumber publik secara terpisah. Kalender dan jumlah kontribusi harian berasal dari kalender profil GitHub; commit publik berasal dari pencarian commit GitHub dengan `author:AtillaKuncoroDjati`; proporsi bahasa berasal dari jumlah byte kode pada repositori milik sendiri yang publik, aktif, dan bukan fork (maksimum 100 repositori).
+
+Commit publik adalah hasil terindeks sepanjang waktu, sedangkan kontribusi mengikuti aktivitas yang dihitung GitHub dalam rentang tanggal grafik. Angka keduanya tidak harus sama. Streak terpanjang dibatasi periode grafik; streak berjalan tetap menyambung dari kemarin apabila hari ini belum ada aktivitas. Data yang belum tercatat oleh GitHub baru muncul setelah sumbernya diperbarui.
+
+Grafik bahasa menampilkan delapan bahasa terbesar, berdasarkan byte kode, bukan persentase kemampuan. Ringkasan bahasa utama di kartu profil menghitung bahasa utama yang berbeda pada proyek pilihan. Repositori profil dan website ikut dalam statistik aktivitas, tetapi tidak dalam daftar karya pilihan.
+
+Hasil aktivitas disimpan satu jam. Jika salah satu sumber gagal, bagian tersebut memakai `data/activity-snapshot.json` dengan tanggalnya dan halaman menampilkan penanda salinan tersimpan; cache kegagalan berlangsung lima menit. Build menyalin snapshot ke `public/activity.json`, sehingga panel dapat muncul sebelum permintaan server selesai. Parser kalender menolak data yang tidak lengkap dan memakai snapshot apabila format HTML GitHub berubah. Token tidak dikirim ke browser maupun permintaan kalender HTML.
+
+Kalender mendukung klik/ketuk, sorotan kursor, dan keyboard: panah kiri/kanan berpindah minggu, atas/bawah berpindah hari, serta Home/End menuju awal/akhir. Pada ponsel, kalender dapat digeser mendatar di dalam panel.
+
+### Bahasa, tema, dan animasi
+
+`public/translations.js` menyimpan pasangan teks Indonesia/Inggris untuk isi editorial, proyek, dan rekam jejak. Tambahkan terjemahan ketika menambah cerita atau sertifikat; deskripsi repositori baru yang belum dikurasi tetap memakai teks GitHub asli. PDF asli tidak diterjemahkan.
+
+`public/i18n.js` mengelola pergantian bahasa dan tema, `public/preferences.js` menerapkan preferensi sebelum halaman tampil, dan `public/interactions.js` mengelola gerakan serta kartu profil. Pengaturan hanya disimpan melalui localStorage pada browser pengunjung, tanpa akun atau database tambahan. Teknologi aplikasi tetap HTML, CSS, dan JavaScript modules dengan fungsi Node.js di Vercel.
 
 ## Menambahkan CV dan rekam jejak
 
@@ -91,6 +113,7 @@ Materi yang terpasang mencakup empat kursus Meta/Coursera (Python, React, HTML/C
 | Materi dari Atilla | Proyek | Lokasi gambar |
 | --- | --- | --- |
 | Screenshot 2026-09-24 141555 | EduSkill | `public/assets/projects/eduskill-dashboard.png` |
+| Screenshot Kanna Dentist | Dentist Appointment | `public/assets/projects/dentist-appointment.png` |
 | Dashboard Penjualan | PWE Dashboard Penjualan | `public/assets/projects/dashboard-penjualan.png` |
 | Dashboard Pertandingan Sepak Bola | Manajemen Pertandingan Sepak Bola | `public/assets/projects/manajemen-sepak-bola.png` |
 | Photo Profile saya | Profil Atilla | `public/assets/profile/atilla-kuncoro-djati.png` |
@@ -108,6 +131,10 @@ Untuk menambahkan screenshot proyek, isi `image`, `imageAlt`, `imageWidth`, dan 
 
 ![Daftar produk Dashboard Penjualan](public/assets/projects/dashboard-penjualan.png)
 
+**Dentist Appointment**
+
+![Halaman utama Kanna Dentist Appointment](public/assets/projects/dentist-appointment.png)
+
 **Manajemen Pertandingan Sepak Bola**
 
 ![Dashboard Manajemen Pertandingan Sepak Bola](public/assets/projects/manajemen-sepak-bola.png)
@@ -117,6 +144,8 @@ Untuk menambahkan screenshot proyek, isi `image`, `imageAlt`, `imageWidth`, dan 
 ## Pemeriksaan tampilan
 
 Periksa filter Web/Desktop/Data, kombinasi kata kunci, hasil pencarian kosong, detail proyek dari tautan langsung, tombol Escape, dan navigasi ponsel. Dialog menggunakan elemen HTML native agar fokus keyboard tetap di dalamnya. Semua isi dari data ditampilkan sebagai teks, bukan HTML mentah.
+
+Periksa juga kedua bahasa dan tema, kartu profil depan/belakang, filter sertifikat, tombol animasi, logo teknologi, dan navigasi kalender. Gunakan lebar 320, 390, 768, dan 1280 piksel untuk memeriksa teks panjang serta area gulir kalender. `npm test` mencakup pembacaan angka kontribusi, perhitungan streak, agregasi bahasa, cache, dan penanganan kegagalan sumber data.
 
 ## Struktur
 
@@ -135,4 +164,6 @@ Pratinjau Bening Studio berasal dari [repositori Bening Studio](https://github.c
 
 Foto profil, screenshot proyek tambahan, CV, dan sertifikat disediakan oleh Atilla. Nama, logo, dan tanda tangan pada sertifikat tetap menjadi bagian dokumen penerbit aslinya.
 
-Bentuk bintang, wordmark AKD, pola titik, dan ilustrasi tipografi dibuat dengan CSS/SVG untuk portofolio ini. Persona 5 menjadi referensi gaya visual. Struktur studi kasus dan penyajian profil juga mendapat inspirasi dari portofolio [Muhammad Danu Setiawan](https://muhammaddanusetiawan.vercel.app/) dan [Mochammad Irsyad Kurniawan](https://mochammadirsyadkurniawan-portfolio.vercel.app/).
+Logo teknologi menggunakan SVG dari [Devicon](https://github.com/devicons/devicon). Salinan lisensi tersedia pada `public/assets/icons/LICENSE.txt`; merek masing-masing tetap dimiliki pemiliknya.
+
+Bentuk bintang, wordmark AKD, pola titik, dan ilustrasi tipografi dibuat dengan CSS/SVG untuk portofolio ini. [Persona 5 Royal](https://persona.atlus.com/p5r/) menjadi referensi tipografi poster, warna, komposisi miring, dan gerakan antarmuka. Struktur studi kasus dan penyajian profil juga mendapat inspirasi dari portofolio [Muhammad Danu Setiawan](https://muhammaddanusetiawan.vercel.app/) dan [Mochammad Irsyad Kurniawan](https://mochammadirsyadkurniawan-portfolio.vercel.app/).

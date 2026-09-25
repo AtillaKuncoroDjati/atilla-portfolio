@@ -19,6 +19,7 @@ export const catalog = {
     approach: 'Laravel dan Blade digunakan untuk alur aplikasi, MySQL untuk penyimpanan data, serta JavaScript, jQuery, dan AJAX untuk interaksi. Dokumentasi repositori menjelaskan aturan progres dan proses penilaian.'
   },
   Dentist_Appointment_System: {
+    image: '/assets/projects/dentist-appointment.png', imageAlt: 'Halaman utama Dentist Appointment Kanna Dentist dengan informasi layanan dan tombol pemesanan janji temu', imageWidth: 720, imageHeight: 360,
     title: 'Dentist Appointment', category: 'web', art: 'BOOK.\nSMILE.', stack: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS'],
     summary: 'Sistem penjadwalan janji temu dokter gigi, umpan balik pasien, dan pengelolaan layanan melalui dashboard.',
     purpose: 'Mempermudah penjadwalan kunjungan dan komunikasi antara pasien dengan administrator layanan.',
