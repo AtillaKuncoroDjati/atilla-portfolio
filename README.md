@@ -10,7 +10,8 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Foto pada halaman pembuka berupa kartu yang dapat dibalik. Pilihan Web/UI/UX/Data memperkenalkan fokus dan mengarahkan ke karya atau pengalaman terkait.
 - Pilihan bahasa Indonesia/Inggris dan tema gelap/terang tersimpan pada perangkat pengunjung.
 - Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
-- Layar pembuka bergaya poster dengan progres 0–100% saat halaman pertama kali dimuat.
+- Layar pembuka bergaya poster dengan tagline “WELCOME TO MY WORLD”, nama Atilla, dan progres 0–100% saat halaman pertama kali dimuat.
+- Gambar pratinjau tautan berukuran 1200 × 630 piksel, dengan judul dan deskripsi untuk Discord serta platform yang membaca Open Graph atau Twitter Cards.
 - Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
@@ -50,6 +51,14 @@ Untuk memakai proyek ini di akun lain, import repositorinya ke Vercel. Konfigura
 Status build dapat diperiksa melalui daftar deployment di Vercel atau pemeriksaan commit di GitHub. Sinkronisasi data repositori melalui `/api/github` berjalan terpisah dari penerbitan perubahan kode website.
 
 `GITHUB_TOKEN` bersifat opsional untuk menambah kuota permintaan GitHub. Jika digunakan, simpan hanya sebagai environment variable server di Vercel atau lingkungan lokal. Gunakan akses minimum untuk membaca data publik. Jangan masukkan token ke JavaScript browser, commit, atau berkas dalam `public`.
+
+## Pratinjau saat membagikan tautan
+
+Metadata Open Graph dan Twitter Card berada langsung di `<head>` pada `public/index.html`, sehingga pembaca pratinjau dapat mengaksesnya tanpa menjalankan JavaScript. Gambar PNG tersedia secara publik di `/assets/social/atilla-portfolio-v1.png` menggunakan URL HTTPS absolut pada metadata.
+
+Desain yang dapat disunting tersedia di `design/social-preview.svg`. Ekspor sebagai PNG berukuran 1200 × 630 piksel setelah mengubah desain; desain memakai font Impact dan Arial. PNG hasil ekspor sudah disertakan dalam repositori sehingga build tidak memerlukan font atau alat gambar tambahan. Ketika mengganti gambar, gunakan nama versi baru dan perbarui alamat pada metadata agar cache gambar lama tidak terus digunakan.
+
+Untuk memeriksa hasil, bagikan URL website sebagai pesan baru dengan pratinjau tautan aktif. Pesan lama atau pratinjau yang masih tersimpan pada platform mungkin belum langsung berubah.
 
 ## Cara sinkronisasi
 
@@ -155,6 +164,7 @@ public/       Halaman, gaya, JavaScript browser, dan gambar
 api/          Fungsi Vercel untuk data GitHub
 lib/          Pembacaan, penyaringan, dan cache data
 data/         Salinan data publik sebagai cadangan
+design/       Sumber SVG untuk gambar pratinjau tautan
 scripts/      Build dan server lokal
 tests/        Pemeriksaan penanganan data
 ```
