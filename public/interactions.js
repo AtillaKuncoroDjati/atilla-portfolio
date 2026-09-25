@@ -108,3 +108,17 @@ document.addEventListener('languagechange', () => {
   setFocus(document.querySelector('[data-focus][aria-pressed=true]'), false);
   document.querySelector('#portrait-flip-label').textContent = t(flipButton.getAttribute('aria-expanded') === 'true' ? 'LIHAT FOTO' : 'KENALI SAYA');
 });
+
+const contactForm = document.querySelector('#contact-form');
+contactForm?.addEventListener('submit', event => {
+  event.preventDefault();
+  const values = new FormData(contactForm);
+  const name = String(values.get('name') || '').trim();
+  const email = String(values.get('email') || '').trim();
+  const message = String(values.get('message') || '').trim();
+  const subject = `Pesan portofolio dari ${name}`;
+  const body = `Nama: ${name}\nEmail: ${email}\n\n${message}`;
+  const status = document.querySelector('#contact-form-status');
+  status.textContent = t('Pesan disiapkan. Periksa aplikasi email kamu untuk mengirimkannya.');
+  window.location.href = `mailto:atillakuncoro01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
