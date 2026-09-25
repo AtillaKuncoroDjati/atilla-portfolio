@@ -28,7 +28,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=DM+Sans:wght@400;500;600;650;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css"><script src="/loader.js" defer></script><script src="/app.js" type="module"></script>
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/motion.css"><script src="/loader.js" defer></script><script src="/app.js" type="module"></script>
 </head>
 <body>
 <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Memuat portofolio">
@@ -38,9 +38,16 @@
 <a class="skip-link" href="#main">Lewati ke konten</a>
 <header class="site-header"><div class="header-inner shell">
 <a class="wordmark" href="#top" aria-label="Atilla, halaman utama">a<span>k</span>d<span class="wordmark-star" aria-hidden="true">✦</span></a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">MENU <span aria-hidden="true">☰</span></button>
+<button class="menu-toggle" aria-expanded="false" aria-controls="navigation-dialog" aria-haspopup="dialog">MENU <span aria-hidden="true">☰</span></button>
 <nav id="main-nav" aria-label="Navigasi utama"><a href="#karya" class="nav-link"><span>01</span> Karya</a><a href="#tentang" class="nav-link"><span>02</span> Tentang</a><a href="#kemampuan" class="nav-link"><span>03</span> Kemampuan</a><a href="#rekam-jejak" class="nav-link" id="records-nav" hidden><span>04</span> Rekam jejak</a><a href="#kontak" class="nav-contact">LET’S TALK <span aria-hidden="true">↗</span></a></nav><div class="header-tools"><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Gunakan tema terang" title="Gunakan tema terang"><span id="theme-symbol" aria-hidden="true">☀</span></button><div class="language-switch" role="group" aria-label="Bahasa"><button type="button" data-language="id" aria-pressed="true" aria-label="Bahasa Indonesia">ID</button><button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button></div></div>
 </div><div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div></header>
+<dialog class="navigation-dialog" id="navigation-dialog" aria-labelledby="navigation-title">
+<div class="navigation-slash" aria-hidden="true"></div>
+<div class="navigation-shell shell"><div class="navigation-top"><span class="wordmark" aria-hidden="true">akd✦</span><p id="navigation-title">PILIH TUJUAN.</p><button id="navigation-close" type="button" aria-label="Tutup menu" autofocus>TUTUP <span aria-hidden="true">×</span></button></div>
+<div class="navigation-body"><div class="navigation-intro"><p class="eyebrow">WELCOME TO MY WORLD</p><p>ATILLA<br>KUNCORO<br>DJATI<span>✦</span></p><span class="navigation-small">CODE. DESIGN. EXPLORE.</span></div>
+<nav class="navigation-links" aria-label="Jelajahi portofolio"><a href="#top"><span class="navigation-number">00</span><span>Beranda</span><i aria-hidden="true">↗</i></a><a href="#karya"><span class="navigation-number">01</span><span>Karya</span><i aria-hidden="true">↗</i></a><a href="#tentang"><span class="navigation-number">02</span><span>Tentang</span><i aria-hidden="true">↗</i></a><a href="#kemampuan"><span class="navigation-number">03</span><span>Kemampuan</span><i aria-hidden="true">↗</i></a><a href="#rekam-jejak"><span class="navigation-number">04</span><span>Rekam jejak</span><i aria-hidden="true">↗</i></a><a href="#github"><span class="navigation-number">05</span><span>GitHub</span><i aria-hidden="true">↗</i></a><a href="#kontak"><span class="navigation-number">06</span><span>Kontak</span><i aria-hidden="true">↗</i></a></nav></div>
+<div class="navigation-footer"><span>ATILLA KUNCORO DJATI / PORTFOLIO</span><span>ESC <span aria-hidden="true">↗</span></span></div></div>
+</dialog>
 <main id="main">
 <section class="hero portrait-hero" id="top" aria-labelledby="hero-title"><div class="hero-slash" aria-hidden="true"></div><div class="hero-inner shell">
 <div class="hero-copy"><p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> HELLO, WORLD. / THIS IS ME</p>

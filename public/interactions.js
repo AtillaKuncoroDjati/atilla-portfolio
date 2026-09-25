@@ -1,4 +1,6 @@
 import { t, translateTree } from './i18n.js';
+import { enhanceMotion } from './motion-ui.js';
+export { enhanceMotion } from './motion-ui.js';
 const root = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
@@ -69,33 +71,31 @@ portraitTilt.addEventListener('pointermove', event => {
 portraitTilt.addEventListener('pointerleave', resetTilt);
 finePointer.addEventListener('change', resetTilt);
 
-const enhanced = new WeakSet();
-const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('is-revealed');
-    revealObserver.unobserve(entry.target);
-  });
-}, {threshold: .06, rootMargin: '0px 0px -24px 0px'}) : null;
-
-export function enhanceMotion(container = document) {
-  container.querySelectorAll('.section-heading,.project-card,.featured-project,.skill-card,.record-card,.about-copy,.about-passport,.github-panel,.contact-heading').forEach((node, index) => {
-    if (enhanced.has(node)) return;
-    enhanced.add(node);
-    if (!motionEnabled() || !revealObserver) return;
-    node.classList.add('reveal-pending');
-    node.style.setProperty('--reveal-delay', `${(index % 3) * 65}ms`);
-    revealObserver.observe(node);
+let scrollFrame = 0;
+let activeSectionId;
+const siteHeader = document.querySelector('.site-header');
+const navigationSections = [...document.querySelectorAll('main > section[id]')];
+function updateActiveNavigation(atBottom) {
+  const readingLine = Math.max(siteHeader.offsetHeight + 24, innerHeight * .25);
+  const sections = navigationSections.filter(section => !section.hidden);
+  let active = sections[0];
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= readingLine) active = section;
+  }
+  if (atBottom) active = sections.at(-1);
+  if (!active || active.id === activeSectionId) return;
+  activeSectionId = active.id;
+  document.querySelectorAll('.nav-link,.nav-contact,.navigation-links a').forEach(link => {
+    if (link.hash === '#' + activeSectionId) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
   });
 }
-document.addEventListener('focusin', event => {
-  event.target.closest('.reveal-pending')?.classList.add('is-revealed');
-});
-let scrollFrame = 0;
 function updateProgress() {
   const length = document.documentElement.scrollHeight - innerHeight;
   const progress = length > 0 ? Math.min(1, Math.max(0, scrollY / length)) : 0;
+  updateActiveNavigation(length > 0 && scrollY >= length - 2);
   document.querySelector('#reading-progress').style.transform = `scaleX(${progress})`;
+  siteHeader.classList.toggle('is-scrolled', scrollY > 40);
   scrollFrame = 0;
 }
 function scheduleProgress() { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateProgress); }

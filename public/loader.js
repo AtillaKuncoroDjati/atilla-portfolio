@@ -3,6 +3,7 @@ const bar = document.querySelector('#loader-bar');
 const percent = document.querySelector('#loader-percent');
 const status = document.querySelector('#loader-status');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const root = document.documentElement;
 let value = 0;
 let finished = false;
 const started = performance.now();
@@ -32,7 +33,11 @@ function closeLoader() {
   finished = true;
   paint(100);
   overlay.classList.add('is-complete');
-  window.setTimeout(() => overlay.remove(), reduced ? 0 : 520);
+  window.setTimeout(() => {
+    overlay.remove();
+    root.dataset.introReady = 'true';
+    document.dispatchEvent(new Event('portfolio:ready'));
+  }, reduced ? 0 : 520);
 }
 
 if (reduced) {

@@ -30,11 +30,18 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 Gunakan Node.js 24, kemudian:
 
 ```sh
+npm ci
 npm run build
 npm run dev
 ```
 
-Buka `http://127.0.0.1:4173`. Proyek tidak memerlukan dependensi aplikasi tambahan. `npm test` menjalankan pemeriksaan penyaringan data publik, penanganan kegagalan, cache, pencarian, kategori, statistik, dan validasi tautan.
+Buka `http://127.0.0.1:4173`. Motion dibundel secara lokal dengan esbuild, sehingga animasi tidak memerlukan CDN saat halaman dibuka. `npm run dev` otomatis membuat bundel yang diperlukan. Gunakan variabel lingkungan `PORT` jika port 4173 sudah terpakai. `npm test` menjalankan pemeriksaan penyaringan data publik, penanganan kegagalan, cache, pencarian, kategori, statistik, dan validasi tautan.
+
+### Animasi dan navigasi
+
+Animasi masuk dimulai setelah loading, disertai filter kategori toolkit, transisi kartu, dan aksen foto yang mengikuti kursor. Header desktop menampilkan navigasi lengkap dan tombol LET’S TALK; pada layar kecil, tombol MENU membuka navigasi layar penuh dengan dukungan Escape dan keyboard. Penanda menu aktif mengikuti bagian halaman yang sedang dibaca. Pita teks tetap bergerak saat terkena kursor. Konten, identitas Persona 5, tema terang/gelap, dan kedua bahasa dipertahankan. Pengaturan reduced motion di perangkat menonaktifkan gerakan. Website menggunakan HTML, CSS, dan JavaScript modules dengan Motion untuk animasi.
+
+Implementasi animasi berada di `public/motion-ui.js` dan `public/motion.css`. `scripts/build-motion.mjs` menghasilkan `public/vendor/motion.js` dari dependensi yang dikunci pada `package-lock.json`. Berkas bundel tidak perlu disunting. Menjalankan build atau preview lokal tidak memublikasikan website; publikasi dilakukan melalui branch `main` sesuai alur di bawah.
 
 ## Publikasi ke Vercel
 

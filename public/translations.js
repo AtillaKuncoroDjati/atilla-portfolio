@@ -1,4 +1,9 @@
 export const english = {
+  'PILIH TUJUAN.':'CHOOSE YOUR NEXT STOP.', 'Beranda':'Home', 'Kontak':'Contact',
+  'Tutup menu':'Close menu', 'Jelajahi portofolio':'Explore the portfolio',
+  'Kategori toolkit':'Toolkit categories', 'Pilih kategori untuk menjelajahi alat.':'Choose a category to explore the toolkit.',
+  'Semua kategori':'All categories', 'alat':'tools',
+  'Buka proyek':'Open project',
   'Pesan dari':'Message from','Nama':'Name',
   'Halaman utama Dentist Appointment Kanna Dentist dengan informasi layanan dan tombol pemesanan janji temu': 'Kanna Dentist Appointment homepage with service information and an appointment booking button',
   'Data GitHub':'GitHub data','salinan tersimpan':'saved snapshot',

@@ -2,6 +2,8 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, extname, sep } from 'node:path';
+import { buildMotion } from './build-motion.mjs';
+await buildMotion();
 const root = resolve(fileURLToPath(new URL('../public/', import.meta.url)));
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.pdf':'application/pdf' };
 const server = createServer(async (req, res) => {
@@ -18,4 +20,5 @@ const server = createServer(async (req, res) => {
     res.end(content);
   } catch { res.writeHead(404); res.end('Not found'); }
 });
-server.listen(4173, '127.0.0.1', () => console.log('Portfolio preview: http://127.0.0.1:4173'));
+const port = Number(process.env.PORT || 4173);
+server.listen(port, '127.0.0.1', () => console.log(`Portfolio preview: http://127.0.0.1:${port}`));

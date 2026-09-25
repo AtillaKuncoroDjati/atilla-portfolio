@@ -6,3 +6,4 @@ node_modules/
 *.log
 public/data.json
 public/activity.json
+public/vendor/

@@ -40,8 +40,9 @@ function tags(values) {
 function renderCard(project) {
   const index = String(projects.indexOf(project) + 1).padStart(2, '0');
   const article = element('article', 'project-card');
-  const art = element('div', 'card-art');
-  art.dataset.category = project.category; art.setAttribute('aria-hidden', 'true');
+  const art = projectLink(project, '', 'card-art');
+  art.dataset.category = project.category;
+  art.setAttribute('aria-label', t('Buka proyek') + ' ' + t(project.title));
   art.append(element('span', 'card-art-word', project.art), element('span', 'card-art-index', index));
   if (project.image) {
     art.classList.add('card-art-preview');
@@ -189,27 +190,6 @@ document.addEventListener('keydown', event => {
     event.preventDefault(); $('#project-search').focus();
   }
 });
-
-const menuButton = $('.menu-toggle');
-const nav = $('#main-nav');
-function closeMenu() { nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded', 'false'); }
-menuButton.addEventListener('click', () => {
-  const open = !nav.classList.contains('is-open'); nav.classList.toggle('is-open', open); menuButton.setAttribute('aria-expanded', String(open));
-});
-nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-document.addEventListener('click', event => { if (!event.target.closest('.site-header')) closeMenu(); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); menuButton.focus(); } });
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
-    document.querySelectorAll('.nav-link').forEach(link => {
-      if (link.hash === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  }, { rootMargin: '-15% 0px -40% 0px', threshold: [0, .1, .3] });
-  document.querySelectorAll('main > section[id]').forEach(section => observer.observe(section));
-}
 
 async function loadProfile() {
   try {
