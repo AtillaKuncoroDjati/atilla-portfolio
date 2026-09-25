@@ -19,7 +19,6 @@ export const english = {
   'Universitas Mercu Buana':'Mercu Buana University','Magang UI/UX Designer':'UI/UX Designer Internship',
   'CARA BELAJAR':'HOW I LEARN','Membangun, menguji,':'Building, testing,','dan berbagi melalui GitHub.':'and sharing through GitHub.',
   'KENALI SAYA':'GET TO KNOW ME','LIHAT FOTO':'BACK TO PHOTO',
-  'ANIMASI AKTIF':'MOTION ON','ANIMASI NONAKTIF':'MOTION OFF','ANIMASI DIKURANGI':'REDUCED MOTION',
   'IDE MENJADI':'TURNING IDEAS','KENYATAAN.':'INTO REALITY.',
   'Setiap proyek punya ceritanya.':'Every project has a story.','Buka dan kenali proses di baliknya.':'Open one and explore the process.',
   'Mengambil data GitHub…':'Loading GitHub data…','PROYEK UNGGULAN':'FEATURED PROJECT',

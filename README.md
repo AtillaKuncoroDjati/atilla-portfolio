@@ -9,7 +9,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Profil, foto, pendidikan, pengalaman magang, dan kontak berdasarkan CV Atilla.
 - Foto pada halaman pembuka berupa kartu yang dapat dibalik. Pilihan Web/UI/UX/Data memperkenalkan fokus dan mengarahkan ke karya atau pengalaman terkait.
 - Pilihan bahasa Indonesia/Inggris dan tema gelap/terang tersimpan pada perangkat pengunjung.
-- Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Tombol animasi dapat menghentikan gerakan dan tetap menghormati pengaturan pengurangan gerakan perangkat.
+- Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
 - Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
@@ -145,7 +145,7 @@ Untuk menambahkan screenshot proyek, isi `image`, `imageAlt`, `imageWidth`, dan 
 
 Periksa filter Web/Desktop/Data, kombinasi kata kunci, hasil pencarian kosong, detail proyek dari tautan langsung, tombol Escape, dan navigasi ponsel. Dialog menggunakan elemen HTML native agar fokus keyboard tetap di dalamnya. Semua isi dari data ditampilkan sebagai teks, bukan HTML mentah.
 
-Periksa juga kedua bahasa dan tema, kartu profil depan/belakang, filter sertifikat, tombol animasi, logo teknologi, dan navigasi kalender. Gunakan lebar 320, 390, 768, dan 1280 piksel untuk memeriksa teks panjang serta area gulir kalender. `npm test` mencakup pembacaan angka kontribusi, perhitungan streak, agregasi bahasa, cache, dan penanganan kegagalan sumber data.
+Periksa juga kedua bahasa dan tema, kartu profil depan/belakang, filter sertifikat, preferensi pengurangan gerakan perangkat, logo teknologi, dan navigasi kalender. Gunakan lebar 320, 390, 768, dan 1280 piksel untuk memeriksa teks panjang serta area gulir kalender. `npm test` mencakup pembacaan angka kontribusi, perhitungan streak, agregasi bahasa, cache, dan penanganan kegagalan sumber data.
 
 ## Struktur
 

@@ -2,11 +2,8 @@ import { t, translateTree } from './i18n.js';
 const root = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-let allowMotion = true;
-try { allowMotion = localStorage.getItem('portfolio-motion') !== 'off'; } catch { /* Storage is optional. */ }
-export const motionEnabled = () => allowMotion && !reducedMotion.matches;
+export const motionEnabled = () => !reducedMotion.matches;
 
-const motionToggle = document.querySelector('#motion-toggle');
 const portraitTilt = document.querySelector('#portrait-tilt');
 let focusAnimation;
 let tiltFrame = 0;
@@ -18,19 +15,11 @@ function resetTilt() {
 function syncMotion() {
   const enabled = motionEnabled();
   root.dataset.motion = enabled ? 'on' : 'off';
-  motionToggle.setAttribute('aria-pressed', String(enabled));
-  motionToggle.disabled = reducedMotion.matches;
-  document.querySelector('#motion-label').textContent = t(reducedMotion.matches ? 'ANIMASI DIKURANGI' : enabled ? 'ANIMASI AKTIF' : 'ANIMASI NONAKTIF');
   if (!enabled) {
     focusAnimation?.cancel(); resetTilt();
     document.querySelectorAll('.reveal-pending').forEach(node => node.classList.add('is-revealed'));
   }
 }
-motionToggle.addEventListener('click', () => {
-  allowMotion = !allowMotion;
-  try { localStorage.setItem('portfolio-motion', allowMotion ? 'on' : 'off'); } catch { /* Keep the setting for this page. */ }
-  syncMotion();
-});
 reducedMotion.addEventListener('change', syncMotion);
 syncMotion();
 
@@ -116,7 +105,6 @@ if ('ResizeObserver' in window) new ResizeObserver(scheduleProgress).observe(doc
 updateProgress();
 enhanceMotion();
 document.addEventListener('languagechange', () => {
-  syncMotion();
   setFocus(document.querySelector('[data-focus][aria-pressed=true]'), false);
   document.querySelector('#portrait-flip-label').textContent = t(flipButton.getAttribute('aria-expanded') === 'true' ? 'LIHAT FOTO' : 'KENALI SAYA');
 });
