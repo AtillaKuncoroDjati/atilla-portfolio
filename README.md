@@ -10,6 +10,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Foto pada halaman pembuka berupa kartu yang dapat dibalik. Pilihan Web/UI/UX/Data memperkenalkan fokus dan mengarahkan ke karya atau pengalaman terkait.
 - Pilihan bahasa Indonesia/Inggris dan tema gelap/terang tersimpan pada perangkat pengunjung.
 - Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
+- Layar pembuka bergaya poster dengan progres 0–100% saat halaman pertama kali dimuat.
 - Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
