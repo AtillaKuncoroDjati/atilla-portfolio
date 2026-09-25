@@ -54,9 +54,9 @@ Status build dapat diperiksa melalui daftar deployment di Vercel atau pemeriksaa
 
 ## Pratinjau saat membagikan tautan
 
-Metadata Open Graph dan Twitter Card berada langsung di `<head>` pada `public/index.html`, sehingga pembaca pratinjau dapat mengaksesnya tanpa menjalankan JavaScript. Gambar PNG tersedia secara publik di `/assets/social/atilla-portfolio-v1.png` menggunakan URL HTTPS absolut pada metadata.
+Metadata Open Graph dan Twitter Card berada langsung di `<head>` pada `public/index.html`, sehingga pembaca pratinjau dapat mengaksesnya tanpa menjalankan JavaScript. Gambar PNG tersedia secara publik di `/assets/social/atilla-portfolio-v2.png` menggunakan URL HTTPS absolut pada metadata.
 
-Desain yang dapat disunting tersedia di `design/social-preview.svg`. Ekspor sebagai PNG berukuran 1200 × 630 piksel setelah mengubah desain; desain memakai font Impact dan Arial. PNG hasil ekspor sudah disertakan dalam repositori sehingga build tidak memerlukan font atau alat gambar tambahan. Ketika mengganti gambar, gunakan nama versi baru dan perbarui alamat pada metadata agar cache gambar lama tidak terus digunakan.
+Desain yang dapat disunting tersedia di `design/social-preview.svg`. Ekspor sebagai PNG berukuran 1200 × 630 piksel setelah mengubah desain; desain memakai font Impact dan Arial serta foto asli dari `public/assets/profile/atilla-kuncoro-djati.png`. Pertahankan tautan relatif foto atau sematkan gambarnya saat mengekspor SVG. PNG hasil ekspor sudah disertakan dalam repositori sehingga build tidak memerlukan font atau alat gambar tambahan. Ketika mengganti gambar, gunakan nama versi baru dan perbarui alamat pada metadata agar cache gambar lama tidak terus digunakan.
 
 Untuk memeriksa hasil, bagikan URL website sebagai pesan baru dengan pratinjau tautan aktif. Pesan lama atau pratinjau yang masih tersimpan pada platform mungkin belum langsung berubah.
 

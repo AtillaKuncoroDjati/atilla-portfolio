@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <title>Welcome to my world — Atilla Kuncoro Djati</title>
-  <desc>A red, black, and cream typographic portfolio poster.</desc>
+  <desc>A red, black, and cream portfolio poster with Atilla Kuncoro Djati's portrait.</desc>
   <defs>
     <pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1" fill="#f3efe6" opacity=".12"/>
@@ -27,17 +27,13 @@
     <text x="109" y="514" fill="#eb1e32">DJATI.</text>
     <text x="101" y="506" fill="#f3efe6">DJATI.</text>
   </g>
-  <g transform="rotate(8 955 293)">
-    <path d="M785 190H1122V420H785Z" fill="#f3efe6"/>
-    <path d="M775 180H1112V410H775Z" fill="#121215"/>
-    <g fill="#f3efe6" font-family="Impact, Arial Narrow, sans-serif" font-size="61" letter-spacing="1">
-      <text x="803" y="249">CODE.</text>
-      <text x="803" y="317">DESIGN.</text>
-      <text x="803" y="385">EXPLORE.</text>
-    </g>
-  </g>
   <path d="M1045 51Q1058 93 1097 105Q1058 116 1045 158Q1032 116 993 105Q1032 93 1045 51Z" fill="#f3efe6"/>
   <path d="M1081 445Q1088 469 1110 476Q1088 483 1081 507Q1074 483 1052 476Q1074 469 1081 445Z" fill="#121215"/>
+  <g transform="rotate(6 955 305)">
+    <rect x="793" y="108" width="355" height="429" fill="#121215"/>
+    <rect x="782" y="95" width="355" height="429" fill="#f3efe6"/>
+    <image href="../public/assets/profile/atilla-kuncoro-djati.png" x="796" y="109" width="327" height="401" preserveAspectRatio="xMidYMid slice"/>
+  </g>
   <rect y="552" width="1200" height="78" fill="#121215"/>
   <path d="M70 552H1130" stroke="#f3efe6" stroke-opacity=".4"/>
   <g fill="#f3efe6" font-family="Arial, sans-serif">
