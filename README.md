@@ -16,7 +16,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
-- Toolkit berisi Programming, Frontend, Backend, Database, AI & ML, UI/UX, dan Dev Tools. Setiap item memiliki logo berukuran besar, tanpa tombol tambahan pada kartu.
+- Toolkit berisi Programming, Frontend, Backend, Database, AI & ML, Tools, dan Dev Tools. AI & ML mencakup Claude, Claude Code, DeepSeek, Gemini, ChatGPT, Codex, Python, NumPy, dan Jupyter Notebook. Tools berisi Figma, VS Code, dan Canva. Setiap item memiliki logo berukuran besar, tanpa tombol tambahan pada kartu.
 - Panel GitHub berisi commit publik, stars, repositori, proporsi bahasa, kalender kontribusi interaktif, dan streak dari data asli.
 - Kartu kontak email, Instagram, LinkedIn, dan GitHub. Klik nomor telepon langsung membuka WhatsApp. Formulir menyiapkan email dengan subjek “Pesan dari [nama]” atau “Message from [name]” sesuai bahasa halaman melalui aplikasi email pengunjung.
 - Tata letak responsif untuk desktop dan ponsel.
@@ -175,6 +175,6 @@ Pratinjau Bening Studio berasal dari [repositori Bening Studio](https://github.c
 
 Foto profil, screenshot proyek tambahan, CV, dan sertifikat disediakan oleh Atilla. Nama, logo, dan tanda tangan pada sertifikat tetap menjadi bagian dokumen penerbit aslinya.
 
-Logo teknologi menggunakan SVG dari [Devicon](https://github.com/devicons/devicon). Salinan lisensi tersedia pada `public/assets/icons/LICENSE.txt`; merek masing-masing tetap dimiliki pemiliknya.
+Logo teknologi menggunakan SVG dari [Devicon](https://github.com/devicons/devicon). Salinan lisensi tersedia pada `public/assets/icons/LICENSE.txt`. Logo Claude, Claude Code, DeepSeek, Gemini, ChatGPT (OpenAI), dan Codex memakai [Lobe Icons](https://github.com/lobehub/lobe-icons), paket `@lobehub/icons-static-svg` versi `1.95.1`, dengan lisensi pada `public/assets/icons/LOBE-ICONS-LICENSE.txt`. Seluruh SVG disimpan lokal; merek masing-masing tetap dimiliki pemiliknya.
 
 Bentuk bintang, wordmark AKD, pola titik, dan ilustrasi tipografi dibuat dengan CSS/SVG untuk portofolio ini. [Persona 5 Royal](https://persona.atlus.com/p5r/) menjadi referensi tipografi poster, warna, komposisi miring, dan gerakan antarmuka. Struktur studi kasus dan penyajian profil juga mendapat inspirasi dari portofolio [Muhammad Danu Setiawan](https://muhammaddanusetiawan.vercel.app/) dan [Mochammad Irsyad Kurniawan](https://mochammadirsyadkurniawan-portfolio.vercel.app/).
