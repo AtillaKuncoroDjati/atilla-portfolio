@@ -23,7 +23,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Menu ponsel, dialog dengan dukungan keyboard, serta pengurangan animasi mengikuti preferensi perangkat.
 - Data tersimpan sebagai cadangan saat GitHub tidak tersedia.
 - Unduh CV asli serta tujuh kartu sertifikat/prestasi dengan filter kategori, pratinjau, PDF asli, dan tautan verifikasi penerbit jika tersedia.
-- Screenshot EduSkill, Dentist Appointment, Dashboard Penjualan, dan Manajemen Sepak Bola pada kartu dan detail proyek.
+- Screenshot EduSkill, Dentist Appointment, Restaurant Booking, Dashboard Penjualan, Manajemen Sepak Bola, dan Eksplorasi Data Banjir Jakarta pada kartu dan detail proyek.
 
 ## Menjalankan secara lokal
 

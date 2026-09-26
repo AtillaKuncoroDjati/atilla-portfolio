@@ -27,6 +27,7 @@ export const catalog = {
     approach: 'Aplikasi menggunakan Laravel, PHP, dan MySQL/MariaDB, dengan Vite serta Tailwind CSS untuk kebutuhan antarmuka.'
   },
   'Restaurant-Table-Booking-System': {
+    image: '/assets/projects/restaurant-booking.png', imageAlt: 'Halaman utama Imperial Dimsum Palace dengan pencarian menu dan tombol reservasi meja', imageWidth: 1599, imageHeight: 732,
     title: 'Restaurant Booking', category: 'web', art: 'SAVE\nA SEAT.', stack: ['Laravel', 'PHP', 'Blade'],
     summary: 'Sistem reservasi meja untuk membantu restoran dan pelanggan mengelola jadwal kunjungan.',
     purpose: 'Menyederhanakan proses pemesanan meja dan pengelolaan jadwal restoran.',
@@ -50,6 +51,7 @@ export const catalog = {
     approach: 'Proyek tugas Pemrograman Web Enterprise berbasis Laravel. Dokumentasi menyertakan tangkapan layar alur produk, autentikasi, database, dan laporan.'
   },
   'Flood-Data-Classification-and-Prediction-in-Jakarta-Districts-Using-the-Naive-Bayes-Method': {
+    image: '/assets/projects/flood-data-jakarta.png', imageAlt: 'Notebook pengolahan data banjir Jakarta dengan pemeriksaan data kosong, encoding kategori, dan pembagian data latih serta data uji', imageWidth: 1145, imageHeight: 744,
     title: 'Eksplorasi Data Banjir Jakarta', category: 'data', art: 'READ THE\nPATTERN.', stack: ['Python', 'Jupyter Notebook', 'Naïve Bayes'],
     summary: 'Eksplorasi prediksi dan klasifikasi banjir Jakarta menggunakan Naïve Bayes serta visualisasi data.',
     purpose: 'Mempelajari pola data banjir dan menyajikan hasil klasifikasi dalam bentuk yang lebih mudah dipahami.',
