@@ -1,6 +1,15 @@
 const OWNER = 'AtillaKuncoroDjati';
 const excluded = new Set([OWNER.toLowerCase(), 'atilla-portfolio']);
 export const catalog = {
+  'Nusa-Rasa': {
+    image: '/assets/projects/nusa-rasa.jpg', imageAlt: 'Beranda Nusa Rasa dengan inspirasi Karedok Spesial, pencarian bahan, dan koleksi resep Nusantara', imageWidth: 873, imageHeight: 672,
+    title: 'Nusa Rasa', category: 'web', art: 'LOCAL TASTE.\nSHARED STORIES.', stack: ['React', 'Node.js', 'MySQL', 'Express', 'Vite'],
+    summary: 'Platform berbagi resep Nusantara oleh Tim Nusa Rasa, dengan pencarian bahan, video resep, mode memasak, dan ulasan pengguna.',
+    purpose: 'Membantu pengguna menemukan masakan sesuai bahan dan waktu yang tersedia, mengikuti langkah memasak, serta berbagi kreasi dari dapur sendiri.',
+    features: ['Pencarian resep berdasarkan judul, bahan, daerah, dan durasi memasak.', 'Akun pengguna, pengelolaan resep, suka, penanda, dan notifikasi.', 'Unggah foto sampul dan video resep MP4 atau WebM hingga 50 MB.', 'Mode memasak langkah demi langkah dengan timer yang dapat dijeda.', 'Ulasan bintang dan foto hasil masakan yang dapat diperbarui atau dihapus.'],
+    approach: 'Dikembangkan oleh Tim Nusa Rasa dari desain Figma, menggunakan React dan Vite untuk antarmuka, Node.js dan Express untuk layanan aplikasi, serta MySQL/MariaDB melalui XAMPP untuk penyimpanan data.',
+    note: 'Aplikasi dijalankan secara lokal dengan Node.js dan MySQL/XAMPP. Panduan pemasangan tersedia di repositori GitHub.'
+  },
   'Bening-Studio': {
     title: 'Bening Studio', category: 'desktop', art: 'MAKE IT\nBENING.', stack: ['C#', 'WPF', '.NET', 'ONNX Runtime'],
     summary: 'Aplikasi Windows portable untuk menghapus background, mengubah ukuran, dan menyimpan gambar transparan secara offline.',

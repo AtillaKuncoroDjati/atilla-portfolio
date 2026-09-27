@@ -129,6 +129,7 @@ Materi yang terpasang mencakup empat kursus Meta/Coursera (Python, React, HTML/C
 
 | Materi dari Atilla | Proyek | Lokasi gambar |
 | --- | --- | --- |
+| Tangkapan layar beranda terbaru | Nusa Rasa — Tim Nusa Rasa | `public/assets/projects/nusa-rasa.jpg` |
 | Screenshot 2026-09-24 141555 | EduSkill | `public/assets/projects/eduskill-dashboard.png` |
 | Screenshot Kanna Dentist | Dentist Appointment | `public/assets/projects/dentist-appointment.png` |
 | Dashboard Penjualan | PWE Dashboard Penjualan | `public/assets/projects/dashboard-penjualan.png` |
@@ -139,6 +140,12 @@ Untuk menambahkan screenshot proyek, isi `image`, `imageAlt`, `imageWidth`, dan 
 
 <details>
 <summary>Pratinjau antarmuka proyek</summary>
+
+**Nusa Rasa — Tim Nusa Rasa**
+
+![Beranda Nusa Rasa dengan inspirasi resep Nusantara](public/assets/projects/nusa-rasa.jpg)
+
+Platform berbagi resep dengan pencarian bahan, video, mode memasak, dan ulasan. [Kode sumber dan panduan MySQL/XAMPP](https://github.com/AtillaKuncoroDjati/Nusa-Rasa). Aplikasi dijalankan lokal; portofolio menampilkan pratinjau dan cerita proyek.
 
 **EduSkill**
 
@@ -177,6 +184,8 @@ tests/        Pemeriksaan penanganan data
 ```
 
 ## Kredit aset
+
+Thumbnail Nusa Rasa diambil dari aplikasi lokal. Desain dan proyek dikreditkan kepada **Tim Nusa Rasa**.
 
 Pratinjau Bening Studio berasal dari [repositori Bening Studio](https://github.com/AtillaKuncoroDjati/Bening-Studio). Foto harimau dalam pratinjau berasal dari contoh publik rembg; atribusi dan lisensinya tersedia dalam [catatan gambar Bening](https://github.com/AtillaKuncoroDjati/Bening-Studio/blob/main/docs/images/README.md). Font DM Sans dan Barlow Condensed dimuat dari Google Fonts dengan font sistem sebagai cadangan.
 
