@@ -1,6 +1,32 @@
 const OWNER = 'AtillaKuncoroDjati';
 const excluded = new Set([OWNER.toLowerCase(), 'atilla-portfolio']);
 export const catalog = {
+  kozenime: {
+    title: 'KOZENIME', category: 'web', art: 'FIND YOUR\nNEXT EPISODE.', stack: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
+    image: '/assets/projects/kozenime-home.jpg', imageAlt: 'Home KOZENIME dengan banner anime, pencarian langsung dan navigasi katalog', imageWidth: 1265, imageHeight: 712,
+    summary: 'Platform anime sub Indonesia dengan pencarian langsung, library pribadi, diskusi, pilihan server episode, dan dashboard admin.',
+    purpose: 'Menyatukan penemuan anime, pilihan episode dan interaksi komunitas dalam pengalaman yang mudah digunakan, sambil memberi admin kendali atas katalog.',
+    features: ['Banner Home otomatis atau pilihan manual, pencarian langsung, filter genre dan status anime.', 'Bookmark, library akun, foto profil dengan preview dan crop, serta reset password melalui email.', 'Diskusi anime dan episode dengan gambar, GIF, stiker, spoiler toggle dan moderasi.', 'Pilihan server streaming dan download yang dikelompokkan berdasarkan format, resolusi dan server.', 'Dashboard admin untuk edit anime/episode, tanggal manual, backup artwork dan Update Katalog dengan review mapping.'],
+    approach: 'Laravel menangani akun, otorisasi, database canonical dan pekerjaan latar. Antarmuka responsif memakai JavaScript, tema gelap/terang dan identitas emas KOZENIME. Update Katalog melewati staging, validasi dan review sebelum data disimpan.',
+    usage: ['Pasang dependency PHP dan frontend, salin template environment, lalu isi database dan akun admin lokal.', 'Jalankan migration, build tampilan dan server lokal; worker terpisah menangani Update Katalog.', 'Jelajahi katalog tanpa login; masuk untuk bookmark dan diskusi. Admin mengelola anime, episode, banner dan review.'],
+    note: 'Aplikasi dijalankan secara lokal; repository menyediakan kode dan panduan, tanpa database produksi atau video. Pemutaran bergantung pada dukungan provider, format dan codec file.',
+    documentation: 'https://github.com/AtillaKuncoroDjati/kozenime/blob/main/docs/INSTALLATION.md',
+    gallery: [
+      { image: '/assets/projects/kozenime-anime.jpg', caption: 'Detail anime dan navigasi episode' },
+      { image: '/assets/projects/kozenime-episode.jpg', caption: 'Download berdasarkan format, resolusi dan server' }
+    ]
+  },
+  'anime-scrapper-indonesia': {
+    title: 'Anime Scrapper Indonesia', category: 'data', art: 'SOURCE.\nSTRUCTURE.\nSYNC.', stack: ['Python', 'Playwright', 'BeautifulSoup', 'AniList API'],
+    image: '/assets/projects/anime-scrapper-indonesia.svg', imageAlt: 'Diagram Anime Scrapper Indonesia dari discovery source hingga normalisasi dan ekspor JSON', imageWidth: 1260, imageHeight: 710,
+    summary: 'Pipeline Python untuk discovery katalog anime Indonesia, normalisasi episode dan link, enrichment AniList, serta ekspor JSON yang dapat ditinjau.',
+    purpose: 'Mengubah data dari beberapa sumber menjadi struktur konsisten dengan identitas dan provenance yang jelas, agar aplikasi konsumen dapat meninjau dan mengimpor data secara aman.',
+    features: ['Adapter Otakudesu, Anoboy dan Samehadaku dengan kemampuan discovery dan parsing sesuai masing-masing source.', 'Indeks dengan checkpoint/resume dan staging episode yang terpisah dari penulisan database.', 'Metadata AniList, identitas episode canonical dan provenance jadwal untuk anime multipart.', 'Format, resolusi, ukuran dan server download bila tersedia; mirror valid tidak menunggu semua mirror lengkap.', 'Regression tests berbasis fixture lokal dan laporan hasil yang membedakan review, validasi serta link yang belum tersedia.'],
+    approach: 'Python, Requests dan BeautifulSoup digunakan untuk adapter source; Playwright menangani entry point yang membutuhkan browser. Output staging JSON, evidence dan progress dikonsumsi aplikasi lain, tanpa akses langsung ke MySQL.',
+    usage: ['Buat virtual environment Python dan pasang requirements. Install Chromium Playwright bila memakai entry point browser.', 'Mulai discovery atau staging terbatas pada satu source, lalu periksa output JSON dan evidence.', 'Lanjutkan checkpoint dengan resume; tinjau mapping AniList yang ambigu sebelum import melalui aplikasi konsumen.'],
+    note: 'Setiap source memiliki kemampuan berbeda dan tidak semua episode menyediakan download. Dataset produksi, profil browser dan video tidak disertakan; proses histori tidak dijalankan otomatis.',
+    documentation: 'https://github.com/AtillaKuncoroDjati/anime-scrapper-indonesia/blob/main/docs/USAGE.md'
+  },
   'Nusa-Rasa': {
     image: '/assets/projects/nusa-rasa.jpg', imageAlt: 'Beranda Nusa Rasa dengan inspirasi Karedok Spesial, pencarian bahan, dan koleksi resep Nusantara', imageWidth: 873, imageHeight: 672,
     title: 'Nusa Rasa', category: 'web', art: 'LOCAL TASTE.\nSHARED STORIES.', stack: ['React', 'Node.js', 'MySQL', 'Express', 'Vite'],

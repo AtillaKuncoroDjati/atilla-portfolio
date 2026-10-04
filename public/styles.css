@@ -18,6 +18,11 @@
 .dialog-preview{display:block;margin-top:28px}
 .dialog-preview .dialog-image{margin:0 0 10px}
 .dialog-preview>span{display:block;text-align:right;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.dialog-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-block:28px}
+.dialog-gallery-item{display:flex;flex-direction:column;gap:10px;min-width:0}
+.dialog-gallery-item img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#111318;border:1px solid var(--muted)}
+.dialog-gallery-item span{font-size:14px;line-height:1.55;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){.dialog-gallery{grid-template-columns:1fr;gap:22px}}
 .identity-portrait{position:relative;margin:24px 0;isolation:isolate;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);background:#747478}
 .identity-portrait img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .portrait-stamp{position:absolute;bottom:18px;left:-12px;display:block;background:var(--paper);color:var(--ink);border:2px solid var(--ink);padding:10px 15px;font:800 29px/.95 var(--display);transform:rotate(5deg);box-shadow:4px 4px 0 var(--ink)}

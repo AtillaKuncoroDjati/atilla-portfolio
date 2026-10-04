@@ -141,10 +141,26 @@ function openProject(project) {
   }
   if (project.purpose) fragment.append(detailSection('IDENYA', project.purpose));
   if (project.features?.length) fragment.append(detailSection('APA YANG BISA DILAKUKAN?', project.features));
+  if (project.gallery?.length) {
+    const gallery = element('div', 'dialog-gallery');
+    for (const item of project.gallery) {
+      const source = safePublicUrl(item.image);
+      if (!source) continue;
+      const preview = externalLink('', source, 'dialog-gallery-item');
+      const image = element('img');
+      image.src = source; image.alt = item.caption; image.loading = 'lazy';
+      image.width = 1265; image.height = 712;
+      preview.append(image, element('span', '', item.caption));
+      gallery.append(preview);
+    }
+    fragment.append(gallery);
+  }
   if (project.approach) fragment.append(detailSection('DI BALIK LAYAR', project.approach));
+  if (project.usage?.length) fragment.append(detailSection('CARA MENGGUNAKAN', project.usage));
   if (project.note) fragment.append(detailSection('CATATAN PENGGUNAAN', project.note));
   const actions = element('div', 'dialog-actions');
   actions.append(externalLink('KODE & DOKUMENTASI ↗', project.url, 'button button-red'));
+  if (project.documentation) actions.append(externalLink('PANDUAN PENGGUNAAN ↗', safeGitHubUrl(project.documentation, project.url), 'button'));
   if (project.name === 'Bening-Studio') actions.append(externalLink('UNDUH BENING STUDIO ↓', latestRelease, 'button'));
   fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
   content.replaceChildren(fragment);

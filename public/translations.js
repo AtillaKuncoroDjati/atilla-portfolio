@@ -1,4 +1,7 @@
+import { projectEnglish } from './project-translations.js';
+
 export const english = {
+  ...projectEnglish,
   'Beranda Nusa Rasa dengan inspirasi Karedok Spesial, pencarian bahan, dan koleksi resep Nusantara':'Nusa Rasa homepage with featured Karedok Spesial, ingredient search, and Indonesian recipes',
   'Platform berbagi resep Nusantara oleh Tim Nusa Rasa, dengan pencarian bahan, video resep, mode memasak, dan ulasan pengguna.':'An Indonesian recipe-sharing platform by the Nusa Rasa team, with ingredient search, recipe videos, cooking mode, and user reviews.',
   'Membantu pengguna menemukan masakan sesuai bahan dan waktu yang tersedia, mengikuti langkah memasak, serta berbagi kreasi dari dapur sendiri.':'Helps people find dishes by available ingredients and time, follow cooking instructions, and share creations from their own kitchens.',
