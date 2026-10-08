@@ -6,7 +6,7 @@
     "location": "Jakarta, Indonesia",
     "avatar_url": "https://avatars.githubusercontent.com/u/182108483?v=4",
     "html_url": "https://github.com/AtillaKuncoroDjati",
-    "public_repos": 12,
+    "public_repos": 13,
     "followers": 6
   },
   "repos": [
@@ -194,7 +194,7 @@
     },
     {
       "name": "Flood-Data-Classification-and-Prediction-in-Jakarta-Districts-Using-the-Naive-Bayes-Method",
-      "description": "Implementation of Naïve Bayes Algorithm for Flood Prediction and Classification in Jakarta, with Visualizations Including Confusion Matrix, Pie Chart, and Geographical Mapping to Show Affected Areas",
+      "description": "Implementation of NaÃ¯ve Bayes Algorithm for Flood Prediction and Classification in Jakarta, with Visualizations Including Confusion Matrix, Pie Chart, and Geographical Mapping to Show Affected Areas",
       "html_url": "https://github.com/AtillaKuncoroDjati/Flood-Data-Classification-and-Prediction-in-Jakarta-Districts-Using-the-Naive-Bayes-Method",
       "language": "Jupyter Notebook",
       "stargazers_count": 0,
@@ -211,6 +211,6 @@
     "html_url": "https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/tag/v2.2.0",
     "published_at": "2026-09-23T12:19:45Z"
   },
-  "updatedAt": "2026-10-04T15:58:04.926Z",
+  "updatedAt": "2026-10-08T19:35:46.160824+00:00",
   "stale": false
 }
