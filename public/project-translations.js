@@ -1,6 +1,16 @@
 import { catalog } from './projects.js';
 
 const localized = {
+  kozetoon: {
+    imageAlt: 'KOZETOON homepage with a purple dark theme, featured stories and a Manga, Manhwa and Manhua catalog',
+    summary: 'An Indonesian Manga, Manhwa and Manhua reader with a Laravel website and standalone Android APK, bookmarks, reading history and a local catalog.',
+    purpose: 'Makes comics easier to discover and read on PC and Android, with comfortable reading tools and catalog controls without hosting for the APK.',
+    features: ['Five automatic or manually selected featured stories, instant search, type and genre filters, authors and synopses.', 'A vertical reader with chapter navigation, image retries, saved width and spacing preferences, and reading position.', 'Library, bookmarks, history, new chapter badges and read markers; phone data is separate from website accounts.', 'A website dashboard for comic and chapter date edits, banners, image health and catalog updates with progress and safe pause.', 'A local Android APK with an initial catalog of 1,572 titles and 149,626 chapters; updates from the source on the phone without a PC server.'],
+    approach: 'The website uses Laravel, Blade, JavaScript and SQLite. Python collects and updates the catalog from Shinigami. The APK uses Java, WebView and Python through Chaquopy, with a private SQLite database on the device.',
+    usage: ['Android: download APK 0.1.0, install on Android 7.0+ ARM64 and allow at least 1 GB of free space. The catalog is extracted on first launch.', 'Search for a story, read chapters, bookmark it and resume from your last position. Open Manage for catalog updates.', 'Website: install Python and Composer dependencies, copy the environment template, run migrations and import the catalog; start Laravel and the catalog worker separately.'],
+    note: 'Metadata and chapter lists are stored locally; images and updates still require internet and an available source. The preview APK has been confirmed to open on a phone; on-device source updates have not been verified. Offline image downloads and cross-device sync are not available yet.',
+    gallery: ['Desktop preview of the APK UI: Home and local catalog', 'Desktop preview of the APK UI: Manage catalog and update progress']
+  },
   kozenime: {
     imageAlt: 'KOZENIME homepage with anime banners, instant search and catalog navigation',
     summary: 'An Indonesian-subtitled anime platform with instant search, a personal library, discussions, episode servers and an admin dashboard.',
@@ -43,6 +53,7 @@ const localized = {
 };
 
 export const projectEnglish = {
+  'UNDUH APK ANDROID ↓': 'DOWNLOAD ANDROID APK ↓',
   'CARA MENGGUNAKAN': 'HOW TO USE',
   'PANDUAN PENGGUNAAN ↗': 'USAGE GUIDE ↗'
 };

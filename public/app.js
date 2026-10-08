@@ -161,6 +161,7 @@ function openProject(project) {
   const actions = element('div', 'dialog-actions');
   actions.append(externalLink('KODE & DOKUMENTASI ↗', project.url, 'button button-red'));
   if (project.documentation) actions.append(externalLink('PANDUAN PENGGUNAAN ↗', safeGitHubUrl(project.documentation, project.url), 'button'));
+  if (project.downloadUrl) actions.append(externalLink('UNDUH APK ANDROID ↓', safeGitHubUrl(project.downloadUrl, project.url), 'button'));
   if (project.name === 'Bening-Studio') actions.append(externalLink('UNDUH BENING STUDIO ↓', latestRelease, 'button'));
   fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
   content.replaceChildren(fragment);

@@ -11,6 +11,33 @@
   },
   "repos": [
     {
+      "name": "kozetoon",
+      "description": "Pembaca Manga, Manhwa dan Manhua Bahasa Indonesia: website Laravel, katalog Python, dan APK Android lokal tanpa hosting.",
+      "html_url": "https://github.com/AtillaKuncoroDjati/kozetoon",
+      "language": "Python",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-10-08T19:16:50Z",
+      "pushed_at": "2026-10-08T19:16:46Z",
+      "fork": false,
+      "archived": false,
+      "topics": [
+        "android",
+        "chaquopy",
+        "comic-reader",
+        "indonesian",
+        "java",
+        "laravel",
+        "manga",
+        "manhua",
+        "manhwa",
+        "php",
+        "python",
+        "sqlite",
+        "webview"
+      ]
+    },
+    {
       "name": "kozenime",
       "description": "Anime Sub Indonesia catalog with library, discussions, episode servers and an administration dashboard. Built with Laravel.",
       "html_url": "https://github.com/AtillaKuncoroDjati/kozenime",

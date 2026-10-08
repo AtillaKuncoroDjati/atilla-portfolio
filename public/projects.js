@@ -1,6 +1,22 @@
 const OWNER = 'AtillaKuncoroDjati';
 const excluded = new Set([OWNER.toLowerCase(), 'atilla-portfolio']);
 export const catalog = {
+  kozetoon: {
+    title: 'KOZETOON', category: 'web', art: 'YOUR STORIES.\nANYWHERE.', stack: ['Laravel', 'PHP', 'Python', 'Java', 'SQLite', 'Chaquopy', 'JavaScript'],
+    image: '/assets/projects/kozetoon-home.jpg', imageAlt: 'Beranda KOZETOON dengan tema gelap ungu, cerita pilihan dan katalog Manga, Manhwa, Manhua', imageWidth: 1265, imageHeight: 712,
+    summary: 'Pembaca Manga, Manhwa, dan Manhua Bahasa Indonesia dalam website Laravel dan APK Android mandiri, dengan bookmark, riwayat baca, serta katalog lokal.',
+    purpose: 'Memudahkan penemuan dan pembacaan komik di PC maupun Android, dengan pengalaman membaca yang nyaman dan kendali atas katalog tanpa hosting untuk APK.',
+    features: ['Home lima cerita pilihan otomatis atau manual, pencarian langsung, filter jenis dan genre, penulis serta sinopsis.', 'Reader vertikal dengan navigasi chapter, retry gambar, pengaturan lebar dan jarak halaman, serta posisi baca tersimpan.', 'Library, bookmark, riwayat, badge chapter baru dan penanda sudah dibaca; data HP terpisah dari akun website.', 'Dashboard website untuk edit komik dan tanggal chapter, banner, status gambar, serta update katalog dengan progres dan jeda aman.', 'APK Android lokal dengan katalog awal 1.572 judul / 149.626 chapter; update dari sumber langsung di HP tanpa server PC.'],
+    approach: 'Website menggunakan Laravel, Blade, JavaScript dan SQLite. Python menangani pengumpulan serta pembaruan katalog dari Shinigami. APK memakai Java, WebView dan Python melalui Chaquopy, dengan database SQLite pribadi pada perangkat.',
+    usage: ['Android: unduh APK 0.1.0, pasang pada Android 7.0+ ARM64 dan sediakan setidaknya 1 GB ruang kosong. Katalog diekstrak saat pertama dibuka.', 'Gunakan pencarian untuk memilih cerita, baca chapter, simpan bookmark dan lanjutkan dari posisi terakhir. Buka Kelola untuk pembaruan katalog.', 'Website: pasang dependensi Python dan Composer, salin environment, jalankan migration dan import katalog; jalankan server Laravel serta worker katalog terpisah.'],
+    note: 'Metadata dan daftar chapter tersedia lokal; gambar serta update tetap memerlukan internet dan ketersediaan sumber. APK versi uji sudah dikonfirmasi dapat dibuka di HP; update sumber di HP belum diverifikasi. Download gambar offline dan sinkronisasi lintas perangkat belum tersedia.',
+    documentation: 'https://github.com/AtillaKuncoroDjati/kozetoon/blob/main/README.md',
+    downloadUrl: 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/download/v0.1.0/KOZETOON-0.1.0-local.apk',
+    gallery: [
+      { image: '/assets/projects/kozetoon-apk-home.png', caption: 'Preview desktop UI APK: Home dan katalog lokal' },
+      { image: '/assets/projects/kozetoon-apk-manage.png', caption: 'Preview desktop UI APK: Kelola katalog dan progres update' }
+    ]
+  },
   kozenime: {
     title: 'KOZENIME', category: 'web', art: 'FIND YOUR\nNEXT EPISODE.', stack: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
     image: '/assets/projects/kozenime-home.jpg', imageAlt: 'Home KOZENIME dengan banner anime, pencarian langsung dan navigasi katalog', imageWidth: 1265, imageHeight: 712,
