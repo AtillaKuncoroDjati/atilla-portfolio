@@ -15,8 +15,15 @@ const server = createServer(async (req, res) => {
     }
     const path = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
     if (!path.startsWith(root + sep) && path !== root) { res.writeHead(403); return res.end(); }
-    const content = await readFile(path);
-    res.writeHead(200, { 'Content-Type': types[extname(path)] || 'application/octet-stream' });
+    let file = path;
+    let content;
+    try { content = await readFile(file); }
+    catch (error) {
+      if (extname(pathname) || !['ENOENT','EISDIR'].includes(error.code)) throw error;
+      file = path + '.html';
+      content = await readFile(file);
+    }
+    res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream' });
     res.end(content);
   } catch { res.writeHead(404); res.end('Not found'); }
 });
