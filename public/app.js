@@ -10,8 +10,6 @@ let activeCategory = 'all';
 let currentQuery = '';
 let currentProject = null;
 let lastOpener = null;
-let latestRelease = 'https://github.com/AtillaKuncoroDjati/Bening-Studio/releases/latest';
-let latestKozetoonRelease = 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/latest';
 let ready = false;
 let profileLocation = '';
 let lastData = null;
@@ -67,12 +65,8 @@ function renderCard(project) {
 }
 function renderProjects() {
   const visible = filterProjects(projects, activeCategory, currentQuery);
-  const featuredNames = new Set(['kozetoon', 'Bening-Studio']);
-  const featuredVisible = visible.some(project => featuredNames.has(project.name));
-  $('#bening').hidden = !visible.some(project => project.name === 'Bening-Studio');
-  $('#kozetoon-featured').hidden = !visible.some(project => project.name === 'kozetoon');
   const fragment = document.createDocumentFragment();
-  visible.filter(project => !featuredNames.has(project.name)).forEach(project => fragment.append(renderCard(project)));
+  visible.forEach(project => fragment.append(renderCard(project)));
   if (!visible.length) {
     const empty = element('div', 'empty-state');
     empty.append(element('h3', '', 'BELUM ADA YANG COCOK.'), element('p', '', 'Coba kata kunci lain atau tampilkan semua kategori.'));
@@ -86,7 +80,7 @@ function renderProjects() {
   $('#project-grid').replaceChildren(fragment);
   translateTree($('#project-grid'));
   enhanceMotion($('#project-grid'));
-  $('#results-label').textContent = ready ? t(visible.length + ' dari ' + projects.length + ' karya' + (featuredVisible ? ' · termasuk proyek unggulan di atas' : '')) : '';
+  $('#results-label').textContent = ready ? t(visible.length + ' dari ' + projects.length + ' karya') : '';
 }
 function setCategory(category) {
   activeCategory = category;
@@ -108,13 +102,6 @@ function render(data, live = false) {
   $('#stat-projects').textContent = summary.count;
   $('#stat-languages').textContent = summary.languages;
   if (profileLocation || data.profile?.location) $('#location').textContent = t(profileLocation || data.profile.location);
-  if (data.release?.tag_name) $('#release-tag').textContent = data.release.tag_name;
-  if (data.release?.html_url) latestRelease = safeGitHubUrl(data.release.html_url, latestRelease);
-  $('#download-link').href = latestRelease;
-  const kozetoonRelease = data.releases?.kozetoon;
-  if (kozetoonRelease?.tag_name) $('#kozetoon-release-tag').textContent = kozetoonRelease.tag_name;
-  if (kozetoonRelease?.html_url) latestKozetoonRelease = safeGitHubUrl(kozetoonRelease.html_url, latestKozetoonRelease);
-  $('#kozetoon-download-link').href = latestKozetoonRelease;
   const date = new Date(data.updatedAt);
   const label = Number.isNaN(date.getTime()) ? t('Data GitHub') : t('Data GitHub') + ' · ' + new Intl.DateTimeFormat(locale(), {day:'numeric', month:'short', year:'numeric'}).format(date);
   $('#sync-label').textContent = live ? label : label + ' · ' + t('salinan tersimpan');
@@ -168,8 +155,7 @@ function openProject(project) {
   const actions = element('div', 'dialog-actions');
   actions.append(externalLink('KODE & DOKUMENTASI ↗', project.url, 'button button-red'));
   if (project.documentation) actions.append(externalLink('PANDUAN PENGGUNAAN ↗', safeGitHubUrl(project.documentation, project.url), 'button'));
-  if (project.downloadUrl) actions.append(externalLink('UNDUH APK ANDROID ↓', project.name === 'kozetoon' ? latestKozetoonRelease : safeGitHubUrl(project.downloadUrl, project.url), 'button'));
-  if (project.name === 'Bening-Studio') actions.append(externalLink('UNDUH BENING STUDIO ↓', latestRelease, 'button'));
+  if (project.downloadUrl) actions.append(externalLink('UNDUH APLIKASI ↓', safeGitHubUrl(project.downloadUrl, project.url), 'button'));
   fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
   content.replaceChildren(fragment);
   translateTree(content);

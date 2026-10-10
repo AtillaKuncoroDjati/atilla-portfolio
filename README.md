@@ -71,7 +71,7 @@ Untuk memeriksa hasil, bagikan URL website sebagai pesan baru dengan pratinjau t
 
 Halaman lebih dahulu memuat `public/data.json`, yang dibuat dari `data/github-snapshot.json` saat build. Setelah itu, halaman meminta data terkini melalui `/api/github`.
 
-Fungsi membaca profil publik, hingga 100 repositori terbaru milik Atilla, serta rilis stabil terbaru KOZETOON dan Bening Studio secara terpisah. Jika salah satu cek rilis gagal, versi terakhir yang tersimpan tetap dipakai. Repositori privat, fork, dan arsip tidak ditampilkan. Repositori profil serta kode website ini disembunyikan dari daftar karya.
+Fungsi membaca profil publik dan hingga 100 repositori terbaru milik Atilla. Repositori privat, fork, dan arsip tidak ditampilkan. Repositori profil serta kode website ini disembunyikan dari daftar karya. KOZETOON, KOZENIME, dan Anime Scrapper Indonesia juga disembunyikan melalui aturan bersama di `public/project-visibility.js`, baik pada respons API, salinan statis, maupun daftar serta pencarian proyek. Panel featured release dan pemeriksaan rilis KOZETOON/Bening Studio tidak ditampilkan. Bening Studio tetap tersedia sebagai kartu proyek biasa.
 
 Hasil disimpan sementara selama 15 menit. CDN dapat menyajikan hasil sebelumnya sambil memperbarui cache. Jika permintaan GitHub gagal, website memakai salinan tersimpan dan menandainya pada halaman. Tidak diperlukan database.
 

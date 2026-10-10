@@ -1,7 +1,11 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { buildMotion } from './build-motion.mjs';
+import { isProjectVisible } from '../public/project-visibility.js';
 const root = new URL('../', import.meta.url);
 const data = JSON.parse((await readFile(new URL('data/github-snapshot.json', root), 'utf8')).replace(/^\uFEFF/, ''));
+data.repos = data.repos.filter(repo => isProjectVisible(repo.name));
+delete data.release;
+delete data.releases;
 await writeFile(new URL('public/data.json', root), JSON.stringify(data));
 const activity = await readFile(new URL('data/activity-snapshot.json', root), 'utf8');
 await writeFile(new URL('public/activity.json', root), activity);

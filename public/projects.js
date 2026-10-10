@@ -1,49 +1,7 @@
+import { isProjectVisible } from './project-visibility.js';
 const OWNER = 'AtillaKuncoroDjati';
 const excluded = new Set([OWNER.toLowerCase(), 'atilla-portfolio']);
 export const catalog = {
-  kozetoon: {
-    title: 'KOZETOON', category: 'web', art: 'YOUR STORIES.\nANYWHERE.', stack: ['Laravel', 'PHP', 'Python', 'Java', 'SQLite', 'Chaquopy', 'JavaScript'],
-    image: '/assets/projects/kozetoon-home.jpg', imageAlt: 'Beranda KOZETOON dengan tema gelap ungu, cerita pilihan dan katalog Manga, Manhwa, Manhua', imageWidth: 1265, imageHeight: 712,
-    summary: 'Pembaca Manga, Manhwa, dan Manhua Bahasa Indonesia dalam website Laravel dan APK Android mandiri, dengan bookmark, riwayat baca, serta katalog lokal.',
-    purpose: 'Memudahkan penemuan dan pembacaan komik di PC maupun Android, dengan pengalaman membaca yang nyaman dan kendali atas katalog tanpa hosting untuk APK.',
-    features: ['Home lima cerita pilihan otomatis/manual, pencarian langsung, filter beberapa genre, jenis Manga/Manhwa/Manhua, dan tampilan grid atau daftar.', 'Reader layar penuh dengan kontrol ketuk, pilihan chapter, auto-scroll empat kecepatan, retry gambar dan posisi terakhir.', 'Library dengan bookmark, riwayat, chapter belum dibaca dan penanda selesai; data HP terpisah dari akun website.', 'Download chapter offline dengan progres, jeda/lanjutkan dan hapus; maksimal 20 chapter per batch dan penyimpanan offline 1 GB.', 'Foto profil dengan crop/zoom, edit metadata lokal, status Ongoing/Completed/Hiatus, serta clear cache tanpa menghapus Library.', 'Tarik layar ke bawah untuk refresh seluruh halaman; pencarian, genre, mode tampilan dan nomor halaman tetap dipertahankan.', 'Update katalog langsung di HP dengan progres dan jeda aman, serta saran pembaruan APK melalui rilis GitHub resmi.', 'Dashboard website untuk edit komik, tanggal chapter, banner, status gambar dan update katalog. Katalog awal APK: 1.572 judul / 149.626 chapter.'],
-    approach: 'Website menggunakan Laravel, Blade, JavaScript dan SQLite. Python menangani pengumpulan serta pembaruan katalog dari Shinigami. APK memakai Java, WebView dan Python melalui Chaquopy, dengan database SQLite pribadi pada perangkat.',
-    usage: ['Unduh APK 1.0.4 dari rilis GitHub. Android 7.0+ ARM64, sekitar 135 MB, dengan setidaknya 1 GB ruang kosong. Instal sebagai Update jika sudah memiliki KOZETOON; jangan uninstall atau hapus data.', 'Jelajahi: ketik judul, pilih jenis dan beberapa genre, lalu gunakan grid atau daftar. Buka cerita dan simpan bookmark untuk melanjutkan bacaan.', 'Reader: ketuk gambar untuk menampilkan/menyembunyikan kontrol. Pilih chapter melalui judul atau menu; tombol play membuka pilihan auto-scroll. Tarik dari posisi paling atas untuk refresh.', 'Offline: cerita → Download → centang chapter → Download. Tunggu Siap offline di Library → Offline sebelum mematikan internet. Lanjutkan unduhan yang dijeda dari halaman itu.', 'Profil: avatar → Pilih foto → geser/crop/zoom → Gunakan foto → Simpan profil. Kelola menyediakan Update katalog, Clear cache, banner Home dan cek versi APK.', 'Website: ikuti README untuk dependensi Python/Composer, environment, migration dan import katalog; jalankan Laravel serta worker katalog terpisah.'],
-    note: 'APK berjalan lokal di HP tanpa hosting atau server PC. Gambar yang belum diunduh dan update sumber memerlukan internet. Bookmark, riwayat, profil dan download dipertahankan saat update dengan identitas/signature yang sama; uninstall atau hapus data dapat menghilangkannya. Belum ada sinkronisasi lintas perangkat. 73 tes otomatis lulus; gestur 1.0.4 belum diuji langsung di Xiaomi 12T.',
-    documentation: 'https://github.com/AtillaKuncoroDjati/kozetoon/blob/main/README.md',
-    downloadUrl: 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/latest',
-    gallery: [
-      { image: '/assets/projects/kozetoon-apk-home.png', caption: 'Preview desktop UI APK: Home dengan indikator tarik untuk refresh' },
-      { image: '/assets/projects/kozetoon-apk-explore.png', caption: 'Preview desktop UI APK: filter genre dan mode daftar' },
-      { image: '/assets/projects/kozetoon-apk-offline.png', caption: 'Preview desktop UI APK: download chapter offline' }
-    ]
-  },
-  kozenime: {
-    title: 'KOZENIME', category: 'web', art: 'FIND YOUR\nNEXT EPISODE.', stack: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
-    image: '/assets/projects/kozenime-home.jpg', imageAlt: 'Home KOZENIME dengan banner anime, pencarian langsung dan navigasi katalog', imageWidth: 1265, imageHeight: 712,
-    summary: 'Platform anime sub Indonesia dengan pencarian langsung, library pribadi, diskusi, pilihan server episode, dan dashboard admin.',
-    purpose: 'Menyatukan penemuan anime, pilihan episode dan interaksi komunitas dalam pengalaman yang mudah digunakan, sambil memberi admin kendali atas katalog.',
-    features: ['Banner Home otomatis atau pilihan manual, pencarian langsung, filter genre dan status anime.', 'Bookmark, library akun, foto profil dengan preview dan crop, serta reset password melalui email.', 'Diskusi anime dan episode dengan gambar, GIF, stiker, spoiler toggle dan moderasi.', 'Pilihan server streaming dan download yang dikelompokkan berdasarkan format, resolusi dan server.', 'Dashboard admin untuk edit anime/episode, tanggal manual, backup artwork dan Update Katalog dengan review mapping.'],
-    approach: 'Laravel menangani akun, otorisasi, database canonical dan pekerjaan latar. Antarmuka responsif memakai JavaScript, tema gelap/terang dan identitas emas KOZENIME. Update Katalog melewati staging, validasi dan review sebelum data disimpan.',
-    usage: ['Pasang dependency PHP dan frontend, salin template environment, lalu isi database dan akun admin lokal.', 'Jalankan migration, build tampilan dan server lokal; worker terpisah menangani Update Katalog.', 'Jelajahi katalog tanpa login; masuk untuk bookmark dan diskusi. Admin mengelola anime, episode, banner dan review.'],
-    note: 'Aplikasi dijalankan secara lokal; repository menyediakan kode dan panduan, tanpa database produksi atau video. Pemutaran bergantung pada dukungan provider, format dan codec file.',
-    documentation: 'https://github.com/AtillaKuncoroDjati/kozenime/blob/main/docs/INSTALLATION.md',
-    gallery: [
-      { image: '/assets/projects/kozenime-anime.jpg', caption: 'Detail anime dan navigasi episode' },
-      { image: '/assets/projects/kozenime-episode.jpg', caption: 'Download berdasarkan format, resolusi dan server' }
-    ]
-  },
-  'anime-scrapper-indonesia': {
-    title: 'Anime Scrapper Indonesia', category: 'data', art: 'SOURCE.\nSTRUCTURE.\nSYNC.', stack: ['Python', 'Playwright', 'BeautifulSoup', 'AniList API'],
-    image: '/assets/projects/anime-scrapper-indonesia.svg', imageAlt: 'Diagram Anime Scrapper Indonesia dari discovery source hingga normalisasi dan ekspor JSON', imageWidth: 1260, imageHeight: 710,
-    summary: 'Pipeline Python untuk discovery katalog anime Indonesia, normalisasi episode dan link, enrichment AniList, serta ekspor JSON yang dapat ditinjau.',
-    purpose: 'Mengubah data dari beberapa sumber menjadi struktur konsisten dengan identitas dan provenance yang jelas, agar aplikasi konsumen dapat meninjau dan mengimpor data secara aman.',
-    features: ['Adapter Otakudesu, Anoboy dan Samehadaku dengan kemampuan discovery dan parsing sesuai masing-masing source.', 'Indeks dengan checkpoint/resume dan staging episode yang terpisah dari penulisan database.', 'Metadata AniList, identitas episode canonical dan provenance jadwal untuk anime multipart.', 'Format, resolusi, ukuran dan server download bila tersedia; mirror valid tidak menunggu semua mirror lengkap.', 'Regression tests berbasis fixture lokal dan laporan hasil yang membedakan review, validasi serta link yang belum tersedia.'],
-    approach: 'Python, Requests dan BeautifulSoup digunakan untuk adapter source; Playwright menangani entry point yang membutuhkan browser. Output staging JSON, evidence dan progress dikonsumsi aplikasi lain, tanpa akses langsung ke MySQL.',
-    usage: ['Buat virtual environment Python dan pasang requirements. Install Chromium Playwright bila memakai entry point browser.', 'Mulai discovery atau staging terbatas pada satu source, lalu periksa output JSON dan evidence.', 'Lanjutkan checkpoint dengan resume; tinjau mapping AniList yang ambigu sebelum import melalui aplikasi konsumen.'],
-    note: 'Setiap source memiliki kemampuan berbeda dan tidak semua episode menyediakan download. Dataset produksi, profil browser dan video tidak disertakan; proses histori tidak dijalankan otomatis.',
-    documentation: 'https://github.com/AtillaKuncoroDjati/anime-scrapper-indonesia/blob/main/docs/USAGE.md'
-  },
   'Nusa-Rasa': {
     image: '/assets/projects/nusa-rasa.jpg', imageAlt: 'Beranda Nusa Rasa dengan inspirasi Karedok Spesial, pencarian bahan, dan koleksi resep Nusantara', imageWidth: 873, imageHeight: 672,
     title: 'Nusa Rasa', category: 'web', art: 'LOCAL TASTE.\nSHARED STORIES.', stack: ['React', 'Node.js', 'MySQL', 'Express', 'Vite'],
@@ -138,7 +96,7 @@ function inferCategory(language) {
 }
 export function getProjects(repos) {
   if (!Array.isArray(repos)) return [];
-  return repos.filter(repo => repo && typeof repo.name === 'string' && !repo.private && !repo.fork && !repo.archived && !excluded.has(repo.name.toLowerCase()))
+  return repos.filter(repo => repo && typeof repo.name === 'string' && !repo.private && !repo.fork && !repo.archived && !excluded.has(repo.name.toLowerCase()) && isProjectVisible(repo.name))
     .map(repo => {
       const custom = catalog[repo.name];
       return { ...repo, title: repo.name.replace(/[-_]/g, ' '), category: inferCategory(repo.language),
@@ -147,7 +105,7 @@ export function getProjects(repos) {
         stars: Number.isFinite(repo.stargazers_count) ? Math.max(0, Math.floor(repo.stargazers_count)) : 0
       };
     }).sort((a, b) => {
-      const rank = name => name === 'kozetoon' ? 0 : name === 'Bening-Studio' ? 1 : 2;
+      const rank = name => name === 'Bening-Studio' ? 0 : 1;
       return rank(a.name) - rank(b.name);
     });
 }

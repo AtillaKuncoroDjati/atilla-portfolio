@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { cleanRepos, fetchPortfolio, createPortfolioLoader, OWNER } from '../lib/github.js';
+import { cleanRepos, fetchPortfolio, fallbackData, createPortfolioLoader, OWNER } from '../lib/github.js';
 
 test('only public owned projects are exposed and response fields are whitelisted', () => {
   const repos = cleanRepos([
@@ -37,10 +37,16 @@ test('concurrent requests share one fetch and failed data is refreshed sooner', 
   time=61_000; await load(); assert.equal(calls,2);
 });
 
-test('both featured release versions update independently and failed release fetch keeps its snapshot', async () => {
-  const fetchImpl=async url=>({ok:true,json:async()=>url.includes('/releases/latest')?{tag_name:url.includes('/kozetoon/')?'v1.0.4':'v2.2.0',html_url:url.includes('/kozetoon/')?`https://github.com/${OWNER}/kozetoon/releases/tag/v1.0.4`:`https://github.com/${OWNER}/Bening-Studio/releases/tag/v2.2.0`}:url.includes('/repos?')?[{name:'kozetoon'}]:{login:OWNER}});
+test('hidden projects and featured release data stay absent in live and fallback responses', async () => {
+  const requests=[];
+  const hidden=['kozetoon','KOZENIME','anime-scrapper-indonesia'];
+  const fetchImpl=async url=>{requests.push(url);return {ok:true,json:async()=>url.includes('/repos?')?[...hidden.map(name=>({name})),{name:'Bening-Studio'}]:{login:OWNER}}};
   const live=await fetchPortfolio({fetchImpl,token:''});
-  assert.equal(live.releases.kozetoon.tag_name,'v1.0.4');assert.equal(live.releases['Bening-Studio'].tag_name,'v2.2.0');
-  const partial=await fetchPortfolio({fetchImpl:async url=>url.includes('/kozetoon/releases')?{ok:false,status:503}:fetchImpl(url),token:''});
-  assert.equal(partial.stale,true);assert.equal(partial.releases.kozetoon.tag_name,'v1.0.4');assert.equal(partial.releases['Bening-Studio'].tag_name,'v2.2.0');
+  assert.deepEqual(live.repos.map(repo=>repo.name),['Bening-Studio']);
+  assert.equal(requests.length,2);
+  assert.equal(requests.some(url=>url.includes('/releases/')),false);
+  for(const data of [live,fallbackData()]){
+    assert.equal('release' in data,false);assert.equal('releases' in data,false);
+    assert.equal(data.repos.some(repo=>hidden.some(name=>name.toLowerCase()===repo.name.toLowerCase())),false);
+  }
 });

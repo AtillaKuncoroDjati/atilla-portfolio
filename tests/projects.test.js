@@ -22,7 +22,7 @@ test('catalog includes future public work while excluding private, fork, archive
   assert.deepEqual(getProjects(null), []);
 });
 
-test('category and multiword search combine, and desktop retains the featured project', () => {
+test('category and multiword search combine, and desktop retains Bening as a regular project', () => {
   const projects = getProjects(repos);
   assert.equal(filterProjects(projects, 'desktop')[0].name, 'Bening-Studio');
   assert.equal(filterProjects(projects, 'web', '  LARAVEL   kuis ')[0].name, 'EduSkillWebsite');
@@ -51,11 +51,8 @@ test('optional public materials allow HTTPS and local documents but reject unsaf
   }
 });
 
-test('featured releases lead in the requested order and KOZETOON links to the unified release', () => {
-  const projects = getProjects([...repos, {name:'kozetoon', language:'Python'}]);
-  assert.deepEqual(projects.slice(0,2).map(p=>p.name), ['kozetoon','Bening-Studio']);
-  assert.equal(projects[0].downloadUrl, 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/latest');
-  assert.ok(projects[0].usage[0].includes('1.0.4'));
-  assert.ok(projects[0].features.some(f=>f.includes('Download chapter offline')));
-  assert.equal(filterProjects(projects,'desktop').some(p=>p.name==='kozetoon'),false);
+test('hidden projects stay absent across every category and search even with old cached data', () => {
+  const projects = getProjects([...repos, {name:'kozetoon',language:'Python'}, {name:'Kozenime',language:'PHP'}, {name:'anime-scrapper-indonesia',language:'Python'}]);
+  assert.deepEqual(projects.map(p=>p.name), ['Bening-Studio','EduSkillWebsite','Future-Analysis']);
+  for(const query of ['kozetoon','kozenime','anime'])assert.equal(filterProjects(projects,'all',query).length,0);
 });
