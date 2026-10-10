@@ -36,3 +36,11 @@ test('concurrent requests share one fetch and failed data is refreshed sooner', 
   time=59_000; await load(); assert.equal(calls,1);
   time=61_000; await load(); assert.equal(calls,2);
 });
+
+test('both featured release versions update independently and failed release fetch keeps its snapshot', async () => {
+  const fetchImpl=async url=>({ok:true,json:async()=>url.includes('/releases/latest')?{tag_name:url.includes('/kozetoon/')?'v1.0.4':'v2.2.0',html_url:url.includes('/kozetoon/')?`https://github.com/${OWNER}/kozetoon/releases/tag/v1.0.4`:`https://github.com/${OWNER}/Bening-Studio/releases/tag/v2.2.0`}:url.includes('/repos?')?[{name:'kozetoon'}]:{login:OWNER}});
+  const live=await fetchPortfolio({fetchImpl,token:''});
+  assert.equal(live.releases.kozetoon.tag_name,'v1.0.4');assert.equal(live.releases['Bening-Studio'].tag_name,'v2.2.0');
+  const partial=await fetchPortfolio({fetchImpl:async url=>url.includes('/kozetoon/releases')?{ok:false,status:503}:fetchImpl(url),token:''});
+  assert.equal(partial.stale,true);assert.equal(partial.releases.kozetoon.tag_name,'v1.0.4');assert.equal(partial.releases['Bening-Studio'].tag_name,'v2.2.0');
+});

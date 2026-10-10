@@ -50,3 +50,12 @@ test('optional public materials allow HTTPS and local documents but reject unsaf
     assert.equal(safePublicUrl(value), null);
   }
 });
+
+test('featured releases lead in the requested order and KOZETOON links to the unified release', () => {
+  const projects = getProjects([...repos, {name:'kozetoon', language:'Python'}]);
+  assert.deepEqual(projects.slice(0,2).map(p=>p.name), ['kozetoon','Bening-Studio']);
+  assert.equal(projects[0].downloadUrl, 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/latest');
+  assert.ok(projects[0].usage[0].includes('1.0.4'));
+  assert.ok(projects[0].features.some(f=>f.includes('Download chapter offline')));
+  assert.equal(filterProjects(projects,'desktop').some(p=>p.name==='kozetoon'),false);
+});

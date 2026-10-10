@@ -6,15 +6,16 @@ export const catalog = {
     image: '/assets/projects/kozetoon-home.jpg', imageAlt: 'Beranda KOZETOON dengan tema gelap ungu, cerita pilihan dan katalog Manga, Manhwa, Manhua', imageWidth: 1265, imageHeight: 712,
     summary: 'Pembaca Manga, Manhwa, dan Manhua Bahasa Indonesia dalam website Laravel dan APK Android mandiri, dengan bookmark, riwayat baca, serta katalog lokal.',
     purpose: 'Memudahkan penemuan dan pembacaan komik di PC maupun Android, dengan pengalaman membaca yang nyaman dan kendali atas katalog tanpa hosting untuk APK.',
-    features: ['Home lima cerita pilihan otomatis atau manual, pencarian langsung, filter jenis dan genre, penulis serta sinopsis.', 'Reader vertikal dengan navigasi chapter, retry gambar, pengaturan lebar dan jarak halaman, serta posisi baca tersimpan.', 'Library, bookmark, riwayat, badge chapter baru dan penanda sudah dibaca; data HP terpisah dari akun website.', 'Dashboard website untuk edit komik dan tanggal chapter, banner, status gambar, serta update katalog dengan progres dan jeda aman.', 'APK Android lokal dengan katalog awal 1.572 judul / 149.626 chapter; update dari sumber langsung di HP tanpa server PC.'],
+    features: ['Home lima cerita pilihan otomatis/manual, pencarian langsung, filter beberapa genre, jenis Manga/Manhwa/Manhua, dan tampilan grid atau daftar.', 'Reader layar penuh dengan kontrol ketuk, pilihan chapter, auto-scroll empat kecepatan, retry gambar dan posisi terakhir.', 'Library dengan bookmark, riwayat, chapter belum dibaca dan penanda selesai; data HP terpisah dari akun website.', 'Download chapter offline dengan progres, jeda/lanjutkan dan hapus; maksimal 20 chapter per batch dan penyimpanan offline 1 GB.', 'Foto profil dengan crop/zoom, edit metadata lokal, status Ongoing/Completed/Hiatus, serta clear cache tanpa menghapus Library.', 'Tarik layar ke bawah untuk refresh seluruh halaman; pencarian, genre, mode tampilan dan nomor halaman tetap dipertahankan.', 'Update katalog langsung di HP dengan progres dan jeda aman, serta saran pembaruan APK melalui rilis GitHub resmi.', 'Dashboard website untuk edit komik, tanggal chapter, banner, status gambar dan update katalog. Katalog awal APK: 1.572 judul / 149.626 chapter.'],
     approach: 'Website menggunakan Laravel, Blade, JavaScript dan SQLite. Python menangani pengumpulan serta pembaruan katalog dari Shinigami. APK memakai Java, WebView dan Python melalui Chaquopy, dengan database SQLite pribadi pada perangkat.',
-    usage: ['Android: unduh APK 0.1.0, pasang pada Android 7.0+ ARM64 dan sediakan setidaknya 1 GB ruang kosong. Katalog diekstrak saat pertama dibuka.', 'Gunakan pencarian untuk memilih cerita, baca chapter, simpan bookmark dan lanjutkan dari posisi terakhir. Buka Kelola untuk pembaruan katalog.', 'Website: pasang dependensi Python dan Composer, salin environment, jalankan migration dan import katalog; jalankan server Laravel serta worker katalog terpisah.'],
-    note: 'Metadata dan daftar chapter tersedia lokal; gambar serta update tetap memerlukan internet dan ketersediaan sumber. APK versi uji sudah dikonfirmasi dapat dibuka di HP; update sumber di HP belum diverifikasi. Download gambar offline dan sinkronisasi lintas perangkat belum tersedia.',
+    usage: ['Unduh APK 1.0.4 dari rilis GitHub. Android 7.0+ ARM64, sekitar 135 MB, dengan setidaknya 1 GB ruang kosong. Instal sebagai Update jika sudah memiliki KOZETOON; jangan uninstall atau hapus data.', 'Jelajahi: ketik judul, pilih jenis dan beberapa genre, lalu gunakan grid atau daftar. Buka cerita dan simpan bookmark untuk melanjutkan bacaan.', 'Reader: ketuk gambar untuk menampilkan/menyembunyikan kontrol. Pilih chapter melalui judul atau menu; tombol play membuka pilihan auto-scroll. Tarik dari posisi paling atas untuk refresh.', 'Offline: cerita → Download → centang chapter → Download. Tunggu Siap offline di Library → Offline sebelum mematikan internet. Lanjutkan unduhan yang dijeda dari halaman itu.', 'Profil: avatar → Pilih foto → geser/crop/zoom → Gunakan foto → Simpan profil. Kelola menyediakan Update katalog, Clear cache, banner Home dan cek versi APK.', 'Website: ikuti README untuk dependensi Python/Composer, environment, migration dan import katalog; jalankan Laravel serta worker katalog terpisah.'],
+    note: 'APK berjalan lokal di HP tanpa hosting atau server PC. Gambar yang belum diunduh dan update sumber memerlukan internet. Bookmark, riwayat, profil dan download dipertahankan saat update dengan identitas/signature yang sama; uninstall atau hapus data dapat menghilangkannya. Belum ada sinkronisasi lintas perangkat. 73 tes otomatis lulus; gestur 1.0.4 belum diuji langsung di Xiaomi 12T.',
     documentation: 'https://github.com/AtillaKuncoroDjati/kozetoon/blob/main/README.md',
-    downloadUrl: 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/download/v0.1.0/KOZETOON-0.1.0-local.apk',
+    downloadUrl: 'https://github.com/AtillaKuncoroDjati/kozetoon/releases/latest',
     gallery: [
-      { image: '/assets/projects/kozetoon-apk-home.png', caption: 'Preview desktop UI APK: Home dan katalog lokal' },
-      { image: '/assets/projects/kozetoon-apk-manage.png', caption: 'Preview desktop UI APK: Kelola katalog dan progres update' }
+      { image: '/assets/projects/kozetoon-apk-home.png', caption: 'Preview desktop UI APK: Home dengan indikator tarik untuk refresh' },
+      { image: '/assets/projects/kozetoon-apk-explore.png', caption: 'Preview desktop UI APK: filter genre dan mode daftar' },
+      { image: '/assets/projects/kozetoon-apk-offline.png', caption: 'Preview desktop UI APK: download chapter offline' }
     ]
   },
   kozenime: {
@@ -59,6 +60,8 @@ export const catalog = {
     features: ['Penghapusan background dan ekspor PNG transparan.', 'Pembesaran serta pengecilan gambar dengan pilihan ukuran 2x, 4x, dan 8x.', 'Pratinjau gambar asli dan hasil secara berdampingan.', 'Pilihan pemrosesan GPU atau CPU, tema terang/gelap, dan pengaturan pembersihan tepi.'],
     approach: 'Antarmuka dibangun dengan C# dan WPF. ONNX Runtime dan DirectML menangani pemrosesan model, sedangkan SkiaSharp digunakan untuk pengolahan gambar. Paket portable menyertakan model dan runtime.',
     note: 'Pemrosesan berjalan secara lokal. Detail hasil pembesaran merupakan perkiraan, dan objek rumit masih dapat memerlukan penyuntingan tambahan.',
+    documentation: 'https://github.com/AtillaKuncoroDjati/Bening-Studio/blob/main/README.md',
+    usage: ['Unduh paket Windows x64 dari rilis GitHub, ekstrak ZIP, lalu jalankan Bening Studio.', 'Buka gambar, tentukan penghapusan background atau perubahan ukuran, lalu pilih pemrosesan GPU/CPU sesuai perangkat.', 'Periksa pratinjau gambar asli dan hasil, sesuaikan pengaturan tepi bila diperlukan, lalu simpan sebagai PNG transparan.'],
     image: '/assets/bening-studio.png', imageAlt: 'Pratinjau antarmuka Bening Studio'
   },
   EduSkillWebsite: {
@@ -143,7 +146,10 @@ export function getProjects(repos) {
         art: 'NEXT\nIDEA.', ...custom, url: safeGitHubUrl(repo.html_url),
         stars: Number.isFinite(repo.stargazers_count) ? Math.max(0, Math.floor(repo.stargazers_count)) : 0
       };
-    }).sort((a, b) => (a.name === 'Bening-Studio' ? -1 : b.name === 'Bening-Studio' ? 1 : 0));
+    }).sort((a, b) => {
+      const rank = name => name === 'kozetoon' ? 0 : name === 'Bening-Studio' ? 1 : 2;
+      return rank(a.name) - rank(b.name);
+    });
 }
 export function filterProjects(projects, category = 'all', query = '') {
   const terms = query.trim().toLocaleLowerCase('id-ID').split(/\s+/).filter(Boolean);

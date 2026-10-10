@@ -2,6 +2,13 @@ import { projectEnglish } from './project-translations.js';
 
 export const english = {
   ...projectEnglish,
+  'Lihat antarmuka dan detail KOZETOON':'Explore KOZETOON interface and details',
+  'Beranda KOZETOON dengan katalog Manga, Manhwa dan Manhua':'KOZETOON homepage with a Manga, Manhwa and Manhua catalog',
+  'Bawa cerita ke mana saja. Baca Manga, Manhwa, dan Manhua di Android tanpa hosting, simpan chapter offline, lalu lanjutkan dari halaman terakhir.':'Take your stories anywhere. Read Manga, Manhwa and Manhua on Android without hosting, save chapters offline, and resume from your last page.',
+  'Unduh APK':'Download APK',
+  'Unduh paket Windows x64 dari rilis GitHub, ekstrak ZIP, lalu jalankan Bening Studio.':'Download the Windows x64 package from GitHub releases, extract the ZIP, and run Bening Studio.',
+  'Buka gambar, tentukan penghapusan background atau perubahan ukuran, lalu pilih pemrosesan GPU/CPU sesuai perangkat.':'Open an image, choose background removal or resizing, and select GPU/CPU processing for your device.',
+  'Periksa pratinjau gambar asli dan hasil, sesuaikan pengaturan tepi bila diperlukan, lalu simpan sebagai PNG transparan.':'Inspect the original and result previews, adjust edge settings if needed, and save as a transparent PNG.',
   'Beranda Nusa Rasa dengan inspirasi Karedok Spesial, pencarian bahan, dan koleksi resep Nusantara':'Nusa Rasa homepage with featured Karedok Spesial, ingredient search, and Indonesian recipes',
   'Platform berbagi resep Nusantara oleh Tim Nusa Rasa, dengan pencarian bahan, video resep, mode memasak, dan ulasan pengguna.':'An Indonesian recipe-sharing platform by the Nusa Rasa team, with ingredient search, recipe videos, cooking mode, and user reviews.',
   'Membantu pengguna menemukan masakan sesuai bahan dan waktu yang tersedia, mengikuti langkah memasak, serta berbagi kreasi dari dapur sendiri.':'Helps people find dishes by available ingredients and time, follow cooking instructions, and share creations from their own kitchens.',

@@ -1,6 +1,6 @@
 # Atilla — Portfolio
 
-Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek unggulan dan daftar karya publik yang diambil dari GitHub. Tampilan merah, hitam, dan putih mengambil inspirasi dari bahasa visual Persona 5: tipografi tebal, komposisi poster, bentuk miring, serta tekstur komik.
+Portofolio pribadi Atilla Kuncoro Djati, dengan KOZETOON dan Bening Studio sebagai proyek unggulan dan daftar karya publik yang diambil dari GitHub. Tampilan merah, hitam, dan putih mengambil inspirasi dari bahasa visual Persona 5: tipografi tebal, komposisi poster, bentuk miring, serta tekstur komik.
 
 **Website:** [atillakuncorodjati.vercel.app](https://atillakuncorodjati.vercel.app)
 
@@ -12,7 +12,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan Bening Studio sebagai proyek ung
 - Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
 - Layar pembuka bergaya poster dengan tagline “WELCOME TO MY WORLD”, nama Atilla, dan progres 0–100% saat halaman pertama kali dimuat.
 - Gambar pratinjau tautan berukuran 1200 × 630 piksel, dengan judul dan deskripsi untuk Discord serta platform yang membaca Open Graph atau Twitter Cards.
-- Bening Studio dengan pratinjau antarmuka serta tautan rilis terbaru.
+- Proyek unggulan berurutan: 01 KOZETOON, 02 Bening Studio. Masing-masing memiliki pratinjau, versi rilis, fitur, cara penggunaan, dokumentasi dan tautan download.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
@@ -71,7 +71,7 @@ Untuk memeriksa hasil, bagikan URL website sebagai pesan baru dengan pratinjau t
 
 Halaman lebih dahulu memuat `public/data.json`, yang dibuat dari `data/github-snapshot.json` saat build. Setelah itu, halaman meminta data terkini melalui `/api/github`.
 
-Fungsi membaca profil publik, hingga 100 repositori terbaru milik Atilla, serta rilis stabil terbaru Bening Studio. Repositori privat, fork, dan arsip tidak ditampilkan. Repositori profil serta kode website ini disembunyikan dari daftar karya.
+Fungsi membaca profil publik, hingga 100 repositori terbaru milik Atilla, serta rilis stabil terbaru KOZETOON dan Bening Studio secara terpisah. Jika salah satu cek rilis gagal, versi terakhir yang tersimpan tetap dipakai. Repositori privat, fork, dan arsip tidak ditampilkan. Repositori profil serta kode website ini disembunyikan dari daftar karya.
 
 Hasil disimpan sementara selama 15 menit. CDN dapat menyajikan hasil sebelumnya sambil memperbarui cache. Jika permintaan GitHub gagal, website memakai salinan tersimpan dan menandainya pada halaman. Tidak diperlukan database.
 
