@@ -10,7 +10,7 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan daftar karya publik yang diambil
 - Foto pada halaman pembuka berupa kartu yang dapat dibalik. Pilihan Web/UI/UX/Data memperkenalkan fokus dan mengarahkan ke karya atau pengalaman terkait.
 - Pilihan bahasa Indonesia/Inggris dan tema gelap/terang tersimpan pada perangkat pengunjung.
 - Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
-- Layar pembuka bergaya poster dengan tagline “WELCOME TO MY WORLD”, nama Atilla, dan progres 0–100% saat halaman pertama kali dimuat.
+- Layar pembuka dengan logo AKD, lingkaran merah/putih yang bergerak, tagline “WELCOME TO MY WORLD”, dan transisi layar terangkat ke Home. Tampil sekali per sesi, dapat dilewati melalui “Masuk sekarang”, dan langsung dilewati untuk reduced motion. Hanya menunggu font judul dan foto awal; batas waktu menjaga halaman bisa digunakan dalam kurang dari dua detik, tanpa menunggu GitHub atau gambar di bagian bawah.
 - Gambar pratinjau tautan berukuran 1200 × 630 piksel, dengan judul dan deskripsi untuk Discord serta platform yang membaca Open Graph atau Twitter Cards.
 - Kartu proyek dengan screenshot, potongan sudut, serta panah yang selalu terlihat. Seluruh kartu dapat diketuk atau dibuka menggunakan keyboard; filter, pencarian, dan detail proyek tetap tersedia.
 - KOZETOON, KOZENIME, Anime Scrapper Indonesia, dan kanal APK KOZETOON disembunyikan dari daftar proyek. Bening Studio ditampilkan sebagai karya biasa tanpa bagian featured releases.
@@ -45,6 +45,8 @@ Animasi masuk dimulai setelah loading, disertai filter kategori toolkit, transis
 Implementasi animasi berada di `public/motion-ui.js` dan `public/motion.css`. `scripts/build-motion.mjs` menghasilkan `public/vendor/motion.js` dari dependensi yang dikunci pada `package-lock.json`. Berkas bundel tidak perlu disunting. Menjalankan build atau preview lokal tidak memublikasikan website; publikasi dilakukan melalui branch `main` sesuai alur di bawah.
 
 Latar halaman dan tampilan kartu berada di `public/portfolio-scenes.css`. Bentuk kartu mengambil inspirasi visual dari [Notched Project Card oleh Maud Benaddi](https://21st.dev/@maudbenaddi/components/notched-project-card), dengan implementasi HTML/CSS/JavaScript yang ditulis untuk portfolio ini dari pratinjau publik. Kode komponen yang memerlukan login tidak disalin. Tidak ada dependensi baru. Screenshot tetap menampilkan antarmuka asli, dan perubahan mengikuti pilihan tema serta pengurangan gerakan perangkat.
+
+Loading awal di `public/opener.css` dan `public/loader.js` mengadaptasi gradient-ring [Loader Kokonut UI yang tersedia di 21st.dev](https://21st.dev/@kokonutd/components/loader) dari [sumber publik pembuatnya](https://kokonutui.com/r/loader.json). Implementasi disesuaikan ke HTML/CSS tanpa menambah React atau library baru; pemberitahuan MIT asli disertakan di `public/licenses/kokonut-ui.txt`. Animasi tidak memakai persentase buatan atau pesan pemeriksaan GitHub.
 
 ## Publikasi ke Vercel
 

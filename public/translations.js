@@ -1,6 +1,7 @@
 import { projectEnglish } from './project-translations.js';
 
 export const english = {
+  'Memuat portofolio':'Loading portfolio','Menyiapkan halaman…':'Preparing the page…','Masuk sekarang':'Enter now','Selamat datang.':'Welcome.',
   ...projectEnglish,
   'Lihat antarmuka dan detail KOZETOON':'Explore KOZETOON interface and details',
   'Beranda KOZETOON dengan katalog Manga, Manhwa dan Manhua':'KOZETOON homepage with a Manga, Manhwa and Manhua catalog',
