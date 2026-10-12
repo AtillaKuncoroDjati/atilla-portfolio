@@ -39,28 +39,41 @@ function tags(values) {
 function renderCard(project) {
   const index = String(projects.indexOf(project) + 1).padStart(2, '0');
   const article = element('article', 'project-card');
-  const art = projectLink(project, '', 'card-art');
+  const link = projectLink(project, '', 'project-card-link');
+  link.setAttribute('aria-label', t('Buka proyek') + ' ' + t(project.title));
+  const cover = element('div', 'card-cover');
+  const art = element('div', 'card-art');
   art.dataset.category = project.category;
-  art.setAttribute('aria-label', t('Buka proyek') + ' ' + t(project.title));
   art.append(element('span', 'card-art-word', project.art), element('span', 'card-art-index', index));
   if (project.image) {
     art.classList.add('card-art-preview');
     const image = element('img');
     image.src = project.image; image.alt = ''; image.loading = 'lazy'; image.decoding = 'async';
     image.width = project.imageWidth || 1260; image.height = project.imageHeight || 840;
-    art.replaceChildren(image, element('span', 'card-preview-label', 'INTERFACE / ' + index));
+    art.replaceChildren(image);
   }
+  const number = element('span', 'card-number', index);
+  number.setAttribute('aria-hidden', 'true');
+  const open = element('span', 'card-open');
+  open.setAttribute('aria-hidden', 'true');
+  const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  arrow.setAttribute('viewBox', '0 0 24 24');
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', 'M6 18 18 6M6 6h12v12');
+  arrow.append(path);
+  open.append(arrow);
+  cover.append(art, number, open);
   const body = element('div', 'card-content');
   const topline = element('div', 'project-topline');
   const date = new Date(project.updated_at);
   const year = Number.isNaN(date.getTime()) ? 'GITHUB' : String(date.getFullYear());
   topline.append(element('span', '', categoryLabels[project.category]), element('span', '', year));
-  const title = element('h3'); title.append(projectLink(project, project.title));
+  const title = element('h3', '', project.title);
   const bottom = element('div', 'card-bottom');
   bottom.append(tags(project.stack.slice(0, 3)));
-  const arrow = element('span', 'card-arrow', '↗'); arrow.setAttribute('aria-hidden', 'true'); bottom.append(arrow);
   body.append(topline, title, element('p', '', project.summary), bottom);
-  article.append(art, body);
+  link.append(cover, body);
+  article.append(link);
   return article;
 }
 function renderProjects() {

@@ -1,6 +1,6 @@
 # Atilla — Portfolio
 
-Portofolio pribadi Atilla Kuncoro Djati, dengan KOZETOON dan Bening Studio sebagai proyek unggulan dan daftar karya publik yang diambil dari GitHub. Tampilan merah, hitam, dan putih mengambil inspirasi dari bahasa visual Persona 5: tipografi tebal, komposisi poster, bentuk miring, serta tekstur komik.
+Portofolio pribadi Atilla Kuncoro Djati, dengan daftar karya publik yang diambil dari GitHub. Tampilan merah, hitam, dan putih mengambil inspirasi dari bahasa visual Persona 5: tipografi tebal, komposisi poster, bentuk miring, serta tekstur komik. Bidang merah diagonal berlanjut dari halaman pembuka ke karya, profil, toolkit, rekam jejak, dan aktivitas GitHub.
 
 **Website:** [atillakuncorodjati.vercel.app](https://atillakuncorodjati.vercel.app)
 
@@ -12,7 +12,8 @@ Portofolio pribadi Atilla Kuncoro Djati, dengan KOZETOON dan Bening Studio sebag
 - Animasi masuk saat menggulir, kartu foto bergerak, pita teks berjalan, logo teknologi saat disorot, dan indikator progres membaca. Animasi mengikuti pengaturan pengurangan gerakan pada perangkat tanpa tombol tambahan di halaman.
 - Layar pembuka bergaya poster dengan tagline “WELCOME TO MY WORLD”, nama Atilla, dan progres 0–100% saat halaman pertama kali dimuat.
 - Gambar pratinjau tautan berukuran 1200 × 630 piksel, dengan judul dan deskripsi untuk Discord serta platform yang membaca Open Graph atau Twitter Cards.
-- Proyek unggulan berurutan: 01 KOZETOON, 02 Bening Studio. Masing-masing memiliki pratinjau, versi rilis, fitur, cara penggunaan, dokumentasi dan tautan download.
+- Kartu proyek dengan screenshot, potongan sudut, serta panah yang selalu terlihat. Seluruh kartu dapat diketuk atau dibuka menggunakan keyboard; filter, pencarian, dan detail proyek tetap tersedia.
+- KOZETOON, KOZENIME, Anime Scrapper Indonesia, dan kanal APK KOZETOON disembunyikan dari daftar proyek. Bening Studio ditampilkan sebagai karya biasa tanpa bagian featured releases.
 - Daftar proyek web, desktop, dan data dari repositori publik.
 - Filter kategori dan pencarian berdasarkan nama, deskripsi, serta teknologi.
 - Detail proyek berisi tujuan, fitur, teknologi, dan tautan dokumentasi. Tautan seperti `/#proyek/Bening-Studio` dapat dibagikan langsung.
@@ -42,6 +43,8 @@ Buka `http://127.0.0.1:4173`. Motion dibundel secara lokal dengan esbuild, sehin
 Animasi masuk dimulai setelah loading, disertai filter kategori toolkit, transisi kartu, dan aksen foto yang mengikuti kursor. Header desktop menampilkan navigasi lengkap dan tombol LET’S TALK; pada layar kecil, tombol MENU membuka navigasi layar penuh dengan dukungan Escape dan keyboard. Penanda menu aktif mengikuti bagian halaman yang sedang dibaca. Pita teks tetap bergerak saat terkena kursor. Konten, identitas Persona 5, tema terang/gelap, dan kedua bahasa dipertahankan. Pengaturan reduced motion di perangkat menonaktifkan gerakan. Website menggunakan HTML, CSS, dan JavaScript modules dengan Motion untuk animasi.
 
 Implementasi animasi berada di `public/motion-ui.js` dan `public/motion.css`. `scripts/build-motion.mjs` menghasilkan `public/vendor/motion.js` dari dependensi yang dikunci pada `package-lock.json`. Berkas bundel tidak perlu disunting. Menjalankan build atau preview lokal tidak memublikasikan website; publikasi dilakukan melalui branch `main` sesuai alur di bawah.
+
+Latar halaman dan tampilan kartu berada di `public/portfolio-scenes.css`. Bentuk kartu mengambil inspirasi visual dari [Notched Project Card oleh Maud Benaddi](https://21st.dev/@maudbenaddi/components/notched-project-card), dengan implementasi HTML/CSS/JavaScript yang ditulis untuk portfolio ini dari pratinjau publik. Kode komponen yang memerlukan login tidak disalin. Tidak ada dependensi baru. Screenshot tetap menampilkan antarmuka asli, dan perubahan mengikuti pilihan tema serta pengurangan gerakan perangkat.
 
 ## Publikasi ke Vercel
 
