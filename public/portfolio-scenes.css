@@ -77,7 +77,42 @@ main > section .section-aside {
   border: 1px solid var(--border);
   border-left: 4px solid var(--red);
 }
-.work-footer { background: var(--scene-base); padding: 18px 0; }
+.work-footer { background: transparent; padding: 18px 0; align-items: center; flex-wrap: wrap; }
+.repository-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 52px;
+  max-width: 100%;
+  padding: 14px 20px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  line-height: 1.5;
+  transition: background .2s,color .2s,border-color .2s,translate .2s;
+}
+.repository-button svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.repository-button:is(:hover,:focus-visible) {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--paper);
+  translate: 0 -2px;
+}
 .about-passport { background: var(--ink); box-shadow: 10px 12px 0 #0004; }
 .about-passport .passport-star { color: var(--red); }
 .skills-section .toolkit-toolbar { background: var(--scene-base); padding: 14px; }
@@ -219,6 +254,7 @@ html .project-card:focus-within { border-color: var(--red); box-shadow: 5px 5px 
   .about-copy { position: relative; background: var(--scene-secondary); padding-block: 18px; }
 }
 @media (max-width:600px) {
+  .repository-button { width: 100%; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card .card-art { aspect-ratio: 16 / 10; }
   .project-card .card-content { padding: 22px 12px 14px; }
