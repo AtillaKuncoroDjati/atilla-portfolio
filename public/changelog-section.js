@@ -2,6 +2,12 @@ import { language, locale, t, translateTree } from './i18n.js';
 
 const entries = [
   {
+    date: '2026-10-25', category: 'improvement', tag: 'PENYEMPURNAAN',
+    title: 'Sertifikasi BNSP ditambahkan ke portfolio',
+    summary: 'Sertifikat kompetensi Perekayasa Perangkat Lunak kini tampil di bagian Sertifikat & Prestasi.',
+    details: ['Kartu menampilkan LSP Universitas Mercu Buana, masa berlaku hingga 10 Juni 2029, pratinjau sertifikat, dan PDF bukti.'],
+  },
+  {
     date: '2026-10-23', category: 'improvement', tag: 'PENYEMPURNAAN',
     title: 'Toolkit dan perangkat kerja diperbarui',
     summary: 'Antigravity ditambahkan ke AI & ML, dan perangkat kerja harian kini ditampilkan dalam bagian khusus.',
