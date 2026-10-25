@@ -128,7 +128,7 @@ Contoh format satu entri sertifikat (ganti seluruh isinya dengan data sebenarnya
 
 Simpan PDF dalam `public/documents/` dan gambar dalam `public/assets/`. Gunakan materi yang memang ingin ditampilkan secara publik. Bagian yang belum memiliki isi tidak ditampilkan. PDF dan foto yang diberikan Atilla disalin tanpa mengubah dokumen aslinya; pratinjau sertifikat dirender dari halaman pertama PDF.
 
-Materi yang terpasang mencakup empat kursus Meta/Coursera (Python, React, HTML/CSS, JavaScript), magang UI/UX di PT. Meissa Berkah Teknologi, finalis PHKM 2024 untuk Lafapra, dan kursus CCNAv7: Introduction to Networks. CCNAv7 ditampilkan sebagai penyelesaian kursus, bukan sertifikasi profesional CCNA. Asesmen Software Engineer BNSP tercantum dalam CV, tetapi belum dibuatkan kartu bukti karena berkas sertifikat terpisah belum disediakan.
+Materi yang terpasang mencakup sertifikat kompetensi BNSP Perekayasa Perangkat Lunak dari LSP Universitas Mercu Buana, empat kursus Meta/Coursera (Python, React, HTML/CSS, JavaScript), magang UI/UX di PT. Meissa Berkah Teknologi, finalis PHKM 2024 untuk Lafapra, dan kursus CCNAv7: Introduction to Networks. CCNAv7 ditampilkan sebagai penyelesaian kursus, bukan sertifikasi profesional CCNA. Sertifikat BNSP ditampilkan dengan masa berlaku sampai 10 Juni 2029.
 
 ## Pemetaan gambar proyek
 

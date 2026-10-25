@@ -32,6 +32,22 @@
   ],
   "certificates": [
     {
+      "title": "Sertifikat Kompetensi — Perekayasa Perangkat Lunak",
+      "organization": "Lembaga Sertifikasi Profesi Universitas Mercu Buana · BNSP",
+      "period": "10 Juni 2026 · berlaku sampai 10 Juni 2029",
+      "kind": "Sertifikasi",
+      "description": "Bidang Teknik Informatika, kualifikasi Perekayasa Perangkat Lunak (Software Engineer).",
+      "highlights": [
+        "Kompetensi mencakup identifikasi sumber kebutuhan dan klasifikasi kebutuhan perangkat lunak.",
+        "Menyusun spesifikasi kebutuhan sistem dan perangkat lunak.",
+        "Merancang struktur perangkat lunak dan antarmuka pengguna."
+      ],
+      "image": "/assets/certificates/bnsp-software-engineer.jpg",
+      "imageWidth": 1200,
+      "imageHeight": 928,
+      "url": "/documents/certificates/bnsp-software-engineer.pdf"
+    },
+    {
       "title": "Programming in Python",
       "organization": "Meta · Coursera",
       "period": "9 Juni 2026",
