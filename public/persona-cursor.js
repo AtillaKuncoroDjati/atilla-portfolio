@@ -11,9 +11,17 @@ if (!matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(pr
   // Touch devices and reduced-motion users keep their normal system cursor.
 } else {
   document.body.append(cursor);
+  const projectDialog = document.querySelector('#project-dialog');
+  const syncCursorHost = () => {
+    const host = projectDialog?.open ? projectDialog : document.body;
+    if (cursor.parentElement !== host) host.append(cursor);
+  };
+  projectDialog?.addEventListener('toggle', syncCursorHost);
+  projectDialog?.addEventListener('close', syncCursorHost);
   html.classList.add('has-persona-cursor');
   const move = event => {
     if (event.pointerType && event.pointerType !== 'mouse') return;
+    syncCursorHost();
     const target = event.target instanceof Element ? event.target : null;
     const isTextEntry = Boolean(target?.closest(textEntry));
     const isLink = !isTextEntry && Boolean(target?.closest(interactive));
