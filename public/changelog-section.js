@@ -2,6 +2,12 @@ import { language, locale, t, translateTree } from './i18n.js';
 
 const entries = [
   {
+    date: '2026-11-05', category: 'project', tag: 'PROYEK',
+    title: 'Desain Figma Nusa Rasa ditautkan',
+    summary: 'Detail proyek Nusa Rasa kini memiliki tautan langsung ke desain Figma.',
+    details: ['Buka desain proyek dari halaman detail Nusa Rasa.'],
+  },
+  {
     date: '2026-10-25', category: 'improvement', tag: 'PENYEMPURNAAN',
     title: 'Sertifikasi BNSP ditambahkan ke portfolio',
     summary: 'Sertifikat kompetensi Perekayasa Perangkat Lunak kini tampil di bagian Sertifikat & Prestasi.',

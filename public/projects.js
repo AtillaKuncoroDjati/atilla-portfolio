@@ -7,6 +7,7 @@ export const catalog = {
     title: 'Nusa Rasa', category: 'web', art: 'LOCAL TASTE.\nSHARED STORIES.', stack: ['React', 'Node.js', 'MySQL', 'Express', 'Vite'],
     summary: 'Platform berbagi resep Nusantara oleh Tim Nusa Rasa, dengan pencarian bahan, video resep, mode memasak, dan ulasan pengguna.',
     purpose: 'Membantu pengguna menemukan masakan sesuai bahan dan waktu yang tersedia, mengikuti langkah memasak, serta berbagi kreasi dari dapur sendiri.',
+    designUrl: 'https://www.figma.com/design/L2yJLqEXoqZ5mpSdUfSZTI/Nusa-Rasa-Project?node-id=300-442&t=oJAnSi1f9qpsTLCh-1',
     features: ['Pencarian resep berdasarkan judul, bahan, daerah, dan durasi memasak.', 'Akun pengguna, pengelolaan resep, suka, penanda, dan notifikasi.', 'Unggah foto sampul dan video resep MP4 atau WebM hingga 50 MB.', 'Mode memasak langkah demi langkah dengan timer yang dapat dijeda.', 'Ulasan bintang dan foto hasil masakan yang dapat diperbarui atau dihapus.'],
     approach: 'Dikembangkan oleh Tim Nusa Rasa dari desain Figma, menggunakan React dan Vite untuk antarmuka, Node.js dan Express untuk layanan aplikasi, serta MySQL/MariaDB melalui XAMPP untuk penyimpanan data.',
     note: 'Aplikasi dijalankan secara lokal dengan Node.js dan MySQL/XAMPP. Panduan pemasangan tersedia di repositori GitHub.'

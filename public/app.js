@@ -167,6 +167,8 @@ function openProject(project) {
   if (project.note) fragment.append(detailSection('CATATAN PENGGUNAAN', project.note));
   const actions = element('div', 'dialog-actions');
   actions.append(externalLink('KODE & DOKUMENTASI ↗', project.url, 'button button-red'));
+  const designUrl = safePublicUrl(project.designUrl);
+  if (designUrl) actions.append(externalLink('DESAIN FIGMA ↗', designUrl, 'button'));
   if (project.documentation) actions.append(externalLink('PANDUAN PENGGUNAAN ↗', safeGitHubUrl(project.documentation, project.url), 'button'));
   if (project.downloadUrl) actions.append(externalLink('UNDUH APLIKASI ↓', safeGitHubUrl(project.downloadUrl, project.url), 'button'));
   fragment.append(actions, element('p', 'dialog-footnote', 'Ringkasan berdasarkan dokumentasi proyek dan portofolio Atilla. Detail kode terbaru tersedia di repositori GitHub.'));
